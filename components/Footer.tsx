@@ -35,6 +35,7 @@ export default function Footer() {
               <Link href="/about"   className="footer-link">About Us</Link>
               <Link href="/contact" className="footer-link">Contact</Link>
               <Link href="/store"   className="footer-link">Store</Link>
+              <Link href="/quote"   className="footer-link">Request a Quote</Link>
             </div>
           </div>
         </div>

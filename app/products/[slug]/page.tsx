@@ -1,11 +1,14 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useParams, notFound } from "next/navigation";
+import { ShoppingCart, Check } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { getProductBySlug } from "@/data/products";
+import { getStoreProductById } from "@/data/storeProducts";
+import { useCart } from "@/context/CartContext";
 
 // ─── Product data ─────────────────────────────────────────────────────────────
 // carouselImages: 4 paths, can repeat the same image if you only have one.
@@ -287,7 +290,23 @@ export default function ProductPage() {
   const { product, category } = result;
   const data = PRODUCT_DATA[slug];
 
-  // Carousel: use PRODUCT_DATA if available, otherwise fall back to product.image repeated
+  const storeProduct = product.storeProductId ? getStoreProductById(product.storeProductId) : null;
+  const { addItem } = useCart();
+  const [added, setAdded] = useState(false);
+
+  const handleAddToCart = () => {
+    if (!storeProduct) return;
+    addItem({
+      id: storeProduct.id,
+      name: storeProduct.name,
+      price: storeProduct.price,
+      image: storeProduct.image,
+      category: storeProduct.category,
+    });
+    setAdded(true);
+    setTimeout(() => setAdded(false), 2200);
+  };
+
   const carouselSlides: string[] = data?.carouselImages
     ?? (product.image ? [product.image] : []);
 
@@ -354,9 +373,34 @@ export default function ProductPage() {
   </div>
 )}
 
-<Link href="/contact" className="pd-cta-btn">
-  Interested in this product? →
-</Link>
+{storeProduct ? (
+  <div className="pd-cta-group">
+    <button
+      className={`pd-cta-btn pd-add-cart-btn ${added ? "added" : ""}`}
+      onClick={handleAddToCart}
+      disabled={!storeProduct.inStock}
+    >
+      {added ? (
+        <><Check size={15} /> Added to Cart</>
+      ) : !storeProduct.inStock ? (
+        "Out of Stock"
+      ) : (
+        <><ShoppingCart size={15} /> Add to Cart — ${storeProduct.price.toLocaleString()}</>
+      )}
+    </button>
+    <p className="pd-store-note">
+      Also available in the{" "}
+      <Link href="/store" className="pd-store-link">Store</Link>
+      {storeProduct.inStock
+        ? ` · Ships in ${storeProduct.leadTime}`
+        : " · Currently out of stock"}
+    </p>
+  </div>
+) : (
+  <Link href="/contact" className="pd-cta-btn">
+    Interested in this product? →
+  </Link>
+)}
           </motion.div>
         </div>
 
