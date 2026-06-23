@@ -146,6 +146,8 @@ export const categories: Category[] = [
           { slug: "battery-balancer-64ch", name: "Battery Balancer 64CH (PBM-PW-B-6405)", image: "/Images/prod1.png" },
           { slug: "battery-balancer-48ch", name: "Battery Balancer 48CH (PBM-PW-B-4805)", image: "/Images/prod1.png" },
           { slug: "battery-balancer-36ch", name: "Battery Balancer 36CH (PBM-PW-B-3605)", image: "/Images/prod1.png" },
+          { slug: "portable-battery-balancer-24ch", name: "Portable Battery Balancer (24CH)", image: "/Images/prod5.png" },
+          { slug: "battery-test-cable-harness", name: "Battery Test Cable Harness Kit", image: "/Images/prod6.png" },
         ],
       },
     ],
