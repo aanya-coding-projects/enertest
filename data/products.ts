@@ -121,37 +121,6 @@ export const categories: Category[] = [
       },
     ],
   },
-  {
-    id: "after-sales-equipment",
-    title: "After-Sales Equipment",
-    description:
-      "Accessories, cables, harnesses, and auxiliary systems for battery testing and BMS validation. Available for direct purchase through our online store.",
-    subcategories: [
-      {
-        name: "Accessories & Components",
-        products: [
-          { slug: "n9000-bms-simulator", name: "N9000 BMS Testing Modular Battery Simulator (8/12/16/20/24/28/32/36CH)", image: "/Images/prod7.png" },
-          { slug: "hv-pack-test-cable", name: "HV Pack Test Cable", image: "/Images/prod4.png" },
-          { slug: "module-data-acquisition-cable", name: "Module Data Acquisition Cable", image: "/Images/prod3.png" },
-          { slug: "balancing-harness", name: "Balancing Harness", image: "/Images/prod5.png" },
-          { slug: "lv-communication-harness", name: "LV Communication Harness", image: "/Images/prod6.png" },
-          { slug: "portable-battery-immersion-tank", name: "Portable Battery Immersion Tank", image: "/Images/prod11.png" },
-          { slug: "emergency-battery-pack-storage-box", name: "Emergency Battery Pack Storage Box", image: "/Images/prod10.png" },
-          { slug: "explosion-proof-transport-box", name: "Explosion-proof Transport Box", image: "/Images/prod9.png" },
-          { slug: "end-of-service-tester", name: "End-of-Service Tester", image: "/Images/prod2.png" },
-          { slug: "comprehensive-battery-maintenance-system", name: "Comprehensive Battery Maintenance System (BRTS-100)", image: "/Images/prod1.png" },
-          { slug: "portable-module-pack-cycler-pbm-b", name: "Portable Module/Pack Cycler (PBM-B Series)", image: "/Images/prod12.png" },
-          { slug: "module-maintenance-device-pbm-cm", name: "Module Maintenance Device (PBM-CM Series)", image: "/Images/prod5.png" },
-          { slug: "module-maintenance-device-pbm-m", name: "Module Maintenance Device (PBM-M Series)", image: "/Images/prod5.png" },
-          { slug: "battery-balancer-64ch", name: "Battery Balancer 64CH (PBM-PW-B-6405)", image: "/Images/prod1.png" },
-          { slug: "battery-balancer-48ch", name: "Battery Balancer 48CH (PBM-PW-B-4805)", image: "/Images/prod1.png" },
-          { slug: "battery-balancer-36ch", name: "Battery Balancer 36CH (PBM-PW-B-3605)", image: "/Images/prod1.png" },
-          { slug: "portable-battery-balancer-24ch", name: "Portable Battery Balancer (24CH)", image: "/Images/prod5.png" },
-          { slug: "battery-test-cable-harness", name: "Battery Test Cable Harness Kit", image: "/Images/prod6.png" },
-        ],
-      },
-    ],
-  },
 ];
 
 export function getProductBySlug(slug: string): { product: Product; category: Category; subcategory: Subcategory } | null {
