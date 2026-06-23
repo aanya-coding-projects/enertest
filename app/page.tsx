@@ -26,13 +26,13 @@ const solutionsData: SolutionCategory[] = [
     id: 2,
     title: "Production & Automation",
     description: "Cell Manufacturing Lines. Sorting Systems. Module & Pack Assembly Lines.",
-    image: "/Images/product2.png",
+    image: "/Images/products/Pro48.png",
   },
   {
     id: 3,
     title: "Engineering Services",
     description: "Systems Engineering & Integration. Onsite & Remote Technical Support. Automation / Utility Software & Test Logic. Custom Test Tools & Fixtures. Localization & Compliance Support.",
-    image: "/Images/product3.png",
+    image: "/Images/prod7.png",
   },
   {
     id: 4,
