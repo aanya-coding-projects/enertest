@@ -121,6 +121,23 @@ export const categories: Category[] = [
       },
     ],
   },
+  {
+    id: "after-sales-equipment",
+    title: "After-Sales Equipment",
+    description:
+      "Accessories, cables, harnesses, and auxiliary systems for battery testing and BMS validation. Available for direct purchase through our online store.",
+    subcategories: [
+      {
+        name: "Accessories & Components",
+        products: [
+          { slug: "n9000-bms-simulator", name: "N9000 BMS Testing Modular Battery Simulator (8/12/16/20/24/28/32/36CH)", image: "/Images/prod7.png" },
+          { slug: "hv-pack-test-cable", name: "HV Pack Test Cable", image: "/Images/prod4.png" },
+          { slug: "module-data-acquisition-cable", name: "Module Data Acquisition Cable", image: "/Images/prod3.png" },
+          { slug: "balancing-harness", name: "Balancing Harness", image: "/Images/prod5.png" },
+        ],
+      },
+    ],
+  },
 ];
 
 export function getProductBySlug(slug: string): { product: Product; category: Category; subcategory: Subcategory } | null {
