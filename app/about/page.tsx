@@ -271,30 +271,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Customers */}
-      <section className="about-section">
-        <div className="about-section-inner">
-          <motion.div className="about-section-header" {...fadeUp}>
-            <span className="cap-tag">OUR CUSTOMERS</span>
-            <h2 className="about-section-title">Trusted by leaders across the battery industry.</h2>
-          </motion.div>
-          <div className="about-customers-grid">
-            {customers.map((c, i) => (
-              <motion.div
-                key={c.type}
-                className="about-customer-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-              >
-                <p className="about-customer-type">{c.type}</p>
-                <p className="about-customer-names">{c.names}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Case Studies */}
       <section className="about-section about-section-gray">
@@ -315,7 +291,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.5, delay: i * 0.08 }}
               >
                 <div className="about-case-location">
-                  <span className="about-case-pin">📍</span>
+                  <span className="about-case-pin"></span>
                   {cs.location}
                 </div>
                 <div className="about-case-section">
