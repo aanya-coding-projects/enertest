@@ -26,7 +26,7 @@ const solutionsData: SolutionCategory[] = [
     id: 2,
     title: "Production & Automation",
     description: "Cell Manufacturing Lines. Sorting Systems. Module & Pack Assembly Lines.",
-    image: "/Images/product2.png",
+    image: "/Images/products/Pro48.png",
   },
   {
     id: 3,
@@ -133,10 +133,10 @@ export default function Home() {
           
           <span className="cap-tag">CAPABILITIES</span>
           <h2 className="cap-headline">
-            From Cells to Complete Energy Systems — Engineered, Installed, Optimized.
+            From Cells to Complete Energy Systems. Engineered, Installed, Optimized.
           </h2>
           <p className="cap-subheadline">
-            Reliable engineering + automation + integration.
+            Reliable engineering, automation, and integration.
           </p>
 
           <div className="cap-layout-grid">

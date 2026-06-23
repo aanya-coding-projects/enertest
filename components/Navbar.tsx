@@ -46,7 +46,7 @@ export default function Navbar() {
                 <span className="nav-link-underline" />
               </Link>
             ))}
-            <Link href="/quote" className="nav-quote-btn">Request a Quote</Link>
+            <Link href="/shop" className="nav-quote-btn">Shop</Link>
           </div>
         )}
 

@@ -34,7 +34,6 @@ export const categories: Category[] = [
           { slug: "cell-jigs-and-fixture", name: "Cell Jigs and Fixtures", image: "/Images/prod4.png" },
         ],
       },
-
       {
         name: "Battery Module & Pack Test Systems",
         products: [
@@ -47,6 +46,13 @@ export const categories: Category[] = [
         name: "Test Chamber & Chiller",
         products: [
           { slug: "cell-climatic-chamber", name: "Cell Climatic Chamber", image: "/Images/prod9.png" },
+          {
+            slug: "chamber-with-integrated-cycler",
+            name: "Chamber with Integrated Cycler",
+            image: "/Images/products/Pro32.png",
+            description:
+              "Battery cell development and manufacturing requires large-scale testing and validation under controlled environments, which drives the demand for cost reduction and facility footprint optimization. The cell test chamber with integrated cycler addresses exactly these challenges; with up to 20% potential cost saving and around 30% facility space saving, it has become a popular choice among battery manufacturers for cell testing and validation featuring lengthy runtimes and large channel counts.",
+          },
           { slug: "module-pack-climatic-chamber", name: "Module/Pack Climatic Chamber", image: "/Images/prod10.png" },
           { slug: "battery-test-chiller", name: "Battery Test Chiller", image: "/Images/prod11.png" },
         ],
@@ -72,49 +78,50 @@ export const categories: Category[] = [
       },
     ],
   },
-    {
+  {
     id: "engineering-services",
     title: "Engineering Services",
     description:
-        "End-to-end technical support from system design through site commissioning. Our U.S.-based engineers work onsite and remotely to keep your line running.",
+      "End-to-end technical support from system design through site commissioning. Our U.S.-based engineers work onsite and remotely to keep your line running.",
     subcategories: [
-        {
+      {
         name: "Services",
         products: [
-            {
+          {
             slug: "equipment-commissioning-training",
             name: "Equipment Commissioning & Training",
             description:
-                "We provide onsite commissioning and training to ensure new equipment operates correctly and delivers maximum efficiency, safety, and long-term performance."
-            },
-            {
+              "We provide onsite commissioning and training to ensure new equipment operates correctly and delivers maximum efficiency, safety, and long-term performance.",
+          },
+          {
             slug: "application-engineering-support",
             name: "Application Engineering Support",
             description:
-                "Customized engineering support designed to help customers maximize product functionality and operational efficiency."
-            },
-            {
+              "Customized engineering support designed to help customers maximize product functionality and operational efficiency.",
+          },
+          {
             slug: "equipment-maintenance-calibration",
             name: "Equipment Maintenance & Calibration",
             description:
-                "Preventive maintenance and calibration services to ensure tools and instruments operate accurately and reliably."
-            },
-            {
+              "Preventive maintenance and calibration services to ensure tools and instruments operate accurately and reliably.",
+          },
+          {
             slug: "program-management-large-projects",
             name: "Program Management for Large Projects",
             description:
-                "Professional project management for large-scale battery laboratories and manufacturing facilities throughout North America."
-            },
-            {
+              "Professional project management for large-scale battery laboratories and manufacturing facilities throughout North America.",
+          },
+          {
             slug: "educational-opportunities",
             name: "Educational Opportunities",
             description:
-                "Collaboration with industry and university partners to provide practical learning opportunities in EV and ESS battery testing and manufacturing."
-            }
-        ]
-        }
-    ]
-    }];
+              "Collaboration with industry and university partners to provide practical learning opportunities in EV and ESS battery testing and manufacturing.",
+          },
+        ],
+      },
+    ],
+  },
+];
 
 export function getProductBySlug(slug: string): { product: Product; category: Category; subcategory: Subcategory } | null {
   for (const category of categories) {

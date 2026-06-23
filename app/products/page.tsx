@@ -1,13 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import { categories } from "@/data/products";
 
 export default function Products() {
+  const searchParams = useSearchParams();
   const [openCategory, setOpenCategory] = useState<string | null>("test-system-solutions");
+
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (hash) {
+      setOpenCategory(hash);
+      setTimeout(() => {
+        const el = document.getElementById(hash);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+    }
+  }, []);
 
   return (
     <main>
@@ -50,6 +63,7 @@ export default function Products() {
             return (
               <motion.div
                 key={category.id}
+                id={category.id}
                 className="category-block"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -111,7 +125,6 @@ export default function Products() {
                                 <div className="product-grid">
                                   {activeProducts.map((product) =>
                                     product.slug === "cell-sorting-system" ? (
-                                      /* Video card for Cell Sorting System */
                                       <Link
                                         key={product.slug}
                                         href={`/products/${product.slug}`}
