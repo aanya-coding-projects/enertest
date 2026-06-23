@@ -21,7 +21,7 @@ export const storeProducts: StoreProduct[] = [
     description:
       "The N9000 is a modular battery simulator designed for BMS hardware-in-the-loop (HIL) testing. Available in 8, 12, 16, 20, 24, 28, 32, and 36 channel configurations, it accurately simulates individual battery cell voltages to validate BMS logic, protection circuits, and communication protocols without requiring real cells.",
     shortDesc: "Modular BMS HIL simulator available in 8–36 channel configurations.",
-    image: "/Images/prod7.png",
+    image: "/Images/aftersales/n9000.png",
     specs: [
       "Channel options: 8 / 12 / 16 / 20 / 24 / 28 / 32 / 36CH",
       "Simulates individual cell voltage per channel",
@@ -40,7 +40,7 @@ export const storeProducts: StoreProduct[] = [
     description:
       "High-voltage pack test cable for connecting battery packs to cyclers and test equipment. Rated for high-current, high-voltage applications typical in EV pack testing environments.",
     shortDesc: "High-voltage cable for connecting battery packs to test equipment.",
-    image: "/Images/prod4.png",
+    image: "/Images/aftersales/hv-pack-test-cable.png",
     specs: [
       "Rated for high-voltage EV pack test environments",
       "High-current capacity with low-resistance conductors",
@@ -59,7 +59,7 @@ export const storeProducts: StoreProduct[] = [
     description:
       "Data acquisition cable for battery module testing. Connects module cell-tap points to data acquisition systems for voltage monitoring, temperature logging, and SOC tracking during charge/discharge cycles.",
     shortDesc: "Cell-tap data acquisition cable for battery module monitoring.",
-    image: "/Images/prod3.png",
+    image: "/Images/aftersales/module-data-acquisition-cable.png",
     specs: [
       "Multi-tap connector for cell voltage monitoring across a module",
       "Compatible with standard DAQ and BMS test systems",
@@ -78,7 +78,7 @@ export const storeProducts: StoreProduct[] = [
     description:
       "Balancing harness for connecting battery cells or modules to a balancer during maintenance, incoming quality control, and pre-assembly operations.",
     shortDesc: "Multi-cell harness for balancing operations and IQC workflows.",
-    image: "/Images/prod5.png",
+    image: "/Images/aftersales/balancing-harness.png",
     specs: [
       "Multi-cell tap connection for balancer compatibility",
       "Suitable for active and passive balancing workflows",
@@ -97,7 +97,7 @@ export const storeProducts: StoreProduct[] = [
     description:
       "Low-voltage communication harness for interfacing BMS and test equipment. Enables reliable signal transmission between battery management systems and test platforms.",
     shortDesc: "Low-voltage harness for BMS and test system communication.",
-    image: "/Images/prod6.png",
+    image: "/Images/aftersales/lv-communication-harness.png",
     specs: [
       "Low-voltage rated communication cable",
       "Compatible with CAN, RS-485, and LIN protocols",
@@ -116,7 +116,7 @@ export const storeProducts: StoreProduct[] = [
     description:
       "Portable immersion tank for battery thermal testing and safe discharge of damaged or end-of-life battery cells and modules. Provides a controlled environment for handling batteries requiring immersion-based safety procedures.",
     shortDesc: "Portable tank for safe battery immersion and thermal containment.",
-    image: "/Images/prod11.png",
+    image: "/Images/aftersales/portable-battery-immersion-tank.png",
     specs: [
       "Portable design for flexible deployment",
       "Compatible with cells, modules, and small packs",
@@ -135,7 +135,7 @@ export const storeProducts: StoreProduct[] = [
     description:
       "Emergency storage box for damaged or thermally compromised battery packs. Provides fire-resistant, vented containment for safe storage and transport of hazardous battery packs pending disposal or inspection.",
     shortDesc: "Fire-resistant emergency containment for damaged battery packs.",
-    image: "/Images/prod10.png",
+    image: "/Images/aftersales/emergency-battery-pack-storage-box.jpg",
     specs: [
       "Fire-resistant enclosure construction",
       "Vented design for off-gas management",
@@ -154,7 +154,7 @@ export const storeProducts: StoreProduct[] = [
     description:
       "Explosion-proof transport box for the safe movement of high-risk or damaged battery cells and modules. Engineered to contain thermal runaway events and prevent propagation during transit.",
     shortDesc: "Explosion-proof containment for high-risk battery transport.",
-    image: "/Images/prod9.png",
+    image: "/Images/aftersales/explosion-proof-transport-box.png",
     specs: [
       "Explosion-proof rated enclosure",
       "Thermal runaway containment design",
@@ -173,7 +173,7 @@ export const storeProducts: StoreProduct[] = [
     description:
       "End-of-service tester for evaluating battery cells and modules at the conclusion of their operational life. Provides capacity, impedance, and health state measurements to support battery repurposing, recycling, and retirement decisions.",
     shortDesc: "Battery end-of-life evaluation system for capacity and health assessment.",
-    image: "/Images/prod2.png",
+    image: "/Images/aftersales/end-of-service-tester.png",
     specs: [
       "Capacity and impedance measurement",
       "State-of-health (SOH) calculation",
@@ -192,7 +192,7 @@ export const storeProducts: StoreProduct[] = [
     description:
       "The BRTS-100 is an all-in-one battery maintenance system for comprehensive cell and module servicing. Integrates balancing, cycling, and diagnostics into a single platform for incoming quality control, field maintenance, and repurposing workflows.",
     shortDesc: "All-in-one maintenance system combining balancing, cycling, and diagnostics.",
-    image: "/Images/prod1.png",
+    image: "/Images/aftersales/brts-100.png",
     specs: [
       "Integrated balancing and cycling functionality",
       "Diagnostic suite: capacity, SOH, impedance",
@@ -211,7 +211,7 @@ export const storeProducts: StoreProduct[] = [
     description:
       "The PBM-B Series is a portable charge/discharge cycler for battery module and pack testing. Designed for field maintenance, service center use, and lab applications requiring a mobile testing solution.",
     shortDesc: "Portable cycler for field and service-center module/pack testing.",
-    image: "/Images/prod12.png",
+    image: "/Images/aftersales/portable-module-pack-cycler.png",
     specs: [
       "Portable form factor for field deployment",
       "Supports module and pack test configurations",
@@ -230,7 +230,7 @@ export const storeProducts: StoreProduct[] = [
     description:
       "The PBM-CM Series module maintenance device provides comprehensive care for battery modules including balancing, capacity testing, and health diagnostics. Suited for service centers and field maintenance teams.",
     shortDesc: "Module maintenance device for balancing, testing, and health diagnostics.",
-    image: "/Images/prod5.png",
+    image: "/Images/aftersales/module-maintenance-device-pbm-cm.jpg",
     specs: [
       "Active balancing and capacity restoration",
       "SOH and impedance diagnostics",
@@ -249,7 +249,7 @@ export const storeProducts: StoreProduct[] = [
     description:
       "The PBM-M Series is a compact module maintenance device for battery module servicing. Provides balancing and basic diagnostic functions in a smaller, cost-effective form factor.",
     shortDesc: "Compact module maintenance device for balancing and basic diagnostics.",
-    image: "/Images/prod5.png",
+    image: "/Images/aftersales/module-maintenance-device-pbm-m.png",
     specs: [
       "Passive and active balancing capability",
       "Basic capacity and voltage diagnostics",
@@ -268,7 +268,7 @@ export const storeProducts: StoreProduct[] = [
     description:
       "64-channel battery balancer for simultaneous cell balancing across large battery packs or multiple modules. Designed for high-throughput incoming quality control and manufacturing line balancing.",
     shortDesc: "64-channel balancer for high-throughput cell and module balancing.",
-    image: "/Images/prod1.png",
+    image: "/Images/aftersales/battery-balancer-64ch.png",
     specs: [
       "64 independent balancing channels",
       "Compatible with NMC, LFP, NCA chemistries",
@@ -287,7 +287,7 @@ export const storeProducts: StoreProduct[] = [
     description:
       "48-channel battery balancer for simultaneous cell balancing across battery packs and modules. Suitable for mid-scale production and service center applications.",
     shortDesc: "48-channel balancer for mid-scale production and service center use.",
-    image: "/Images/prod1.png",
+    image: "/Images/aftersales/battery-balancer-48ch.png",
     specs: [
       "48 independent balancing channels",
       "Compatible with NMC, LFP, NCA chemistries",
@@ -306,7 +306,7 @@ export const storeProducts: StoreProduct[] = [
     description:
       "36-channel battery balancer for cell and module balancing in lab and service environments. A cost-effective solution for lower-volume balancing needs.",
     shortDesc: "36-channel balancer for lab and service-center balancing operations.",
-    image: "/Images/prod1.png",
+    image: "/Images/aftersales/battery-balancer-36ch.png",
     specs: [
       "36 independent balancing channels",
       "Compatible with NMC, LFP, NCA chemistries",
