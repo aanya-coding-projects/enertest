@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
 
-const strengths = [
+const strengths: { icon: string; title: string; items: string[] }[] = [
   {
     
     title: "Access to Leading Manufacturing Resources",
