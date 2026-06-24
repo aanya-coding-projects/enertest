@@ -3,12 +3,10 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import { categories } from "@/data/products";
 
 export default function Products() {
-  const searchParams = useSearchParams();
   const [openCategory, setOpenCategory] = useState<string | null>("test-system-solutions");
 
   useEffect(() => {
