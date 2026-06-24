@@ -38,7 +38,7 @@ const solutionsData: SolutionCategory[] = [
     id: 4,
     title: "Maintenance & Auxiliary Systems",
     description: "Balancers. Recharge Units. Other Equipment.",
-    image: "/Images/product4.png",
+    image: "/Images/aftersales/hv-pack-test-cable.png",
     isSpecial: true,
   },
 ];
