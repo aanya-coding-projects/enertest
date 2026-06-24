@@ -4,9 +4,8 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
 
-const strengths: { icon: string; title: string; items: string[] }[] = [
+const strengths: { title: string; items: string[] }[] = [
   {
-    icon: "⚡",
     title: "Access to Leading Manufacturing Resources",
     items: [
       "Access to proven battery equipment makers in Asia",
@@ -16,7 +15,6 @@ const strengths: { icon: string; title: string; items: string[] }[] = [
     ],
   },
   {
-    icon: "🔬",
     title: "Battery Manufacturing Process Expertise",
     items: [
       "Deep understanding of key module and pack processes",
@@ -26,7 +24,6 @@ const strengths: { icon: string; title: string; items: string[] }[] = [
     ],
   },
   {
-    icon: "✅",
     title: "Compliance-Driven Engineering",
     items: [
       "UL / NFPA / NEC design understanding",
@@ -36,7 +33,6 @@ const strengths: { icon: string; title: string; items: string[] }[] = [
     ],
   },
   {
-    icon: "🇺🇸",
     title: "Local Execution & Project Management",
     items: [
       "Local technical sales and engineering support",
@@ -230,7 +226,6 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
-                <span className="about-strength-icon">{s.icon}</span>
                 <h3 className="about-strength-title">{s.title}</h3>
                 <ul className="about-strength-list">
                   {s.items.map((item, j) => (
