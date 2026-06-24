@@ -2855,7 +2855,7 @@ right: 1rem;
 
 .about-section-gray .about-stat { background: #fff; }
 
-.about-stat-num { font-size: 2.5rem; font-weight: 700; color: #396548; letter-spacing: -0.04em; line-height: 1; }
+.about-stat-num { font-size: 2.5rem; font-weight: 700; color: #8cc63f; letter-spacing: -0.04em; line-height: 1; }
 .about-stat-label { font-size: 0.78rem; color: #666; font-weight: 500; }
 
 .about-pain-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; }

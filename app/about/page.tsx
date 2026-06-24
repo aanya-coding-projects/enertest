@@ -132,7 +132,7 @@ export default function AboutPage() {
               <h2 className="about-section-title">We are not just an equipment seller.</h2>
               <p className="about-section-body">
                 EnerTest Solutions is an engineering-focused team with solid experience in battery manufacturing and testing.
-                We design and implement turnkey battery testing systems — acting as an extension of the customer engineering team
+                We design and implement turnkey battery testing systems, acting as an extension of the customer engineering team
                 throughout design, implementation, and optimization.
               </p>
               <p className="about-section-body">

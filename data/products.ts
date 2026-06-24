@@ -23,7 +23,7 @@ export const categories: Category[] = [
     id: "test-system-solutions",
     title: "Test System Solutions",
     description:
-      "Industrial-scale battery test systems for raw material characterization through finished cell, module, and pack validation. Engineered for production environments — not labs.",
+      "Industrial-scale battery test systems for raw material characterization through finished cell, module, and pack validation. Engineered for production environments, not labs.",
     subcategories: [
       {
         name: "Battery Cell Test Systems",

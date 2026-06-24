@@ -133,10 +133,10 @@ export default function Home() {
           
           <span className="cap-tag">CAPABILITIES</span>
           <h2 className="cap-headline">
-            From Cells to Complete Energy Systems — Engineered, Installed, Optimized.
+            From Cells to Complete Energy Systems. Engineered, Installed, Optimized.
           </h2>
           <p className="cap-subheadline">
-            Reliable engineering + automation + integration.
+            Reliable engineering, automation, and integration.
           </p>
 
           <div className="cap-layout-grid">
