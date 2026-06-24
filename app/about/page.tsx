@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const strengths: { icon: string; title: string; items: string[] }[] = [
   {
-    
+    icon: "⚡",
     title: "Access to Leading Manufacturing Resources",
     items: [
       "Access to proven battery equipment makers in Asia",
@@ -16,6 +16,7 @@ const strengths: { icon: string; title: string; items: string[] }[] = [
     ],
   },
   {
+    icon: "🔬",
     title: "Battery Manufacturing Process Expertise",
     items: [
       "Deep understanding of key module and pack processes",
@@ -25,6 +26,7 @@ const strengths: { icon: string; title: string; items: string[] }[] = [
     ],
   },
   {
+    icon: "✅",
     title: "Compliance-Driven Engineering",
     items: [
       "UL / NFPA / NEC design understanding",
@@ -34,6 +36,7 @@ const strengths: { icon: string; title: string; items: string[] }[] = [
     ],
   },
   {
+    icon: "🇺🇸",
     title: "Local Execution & Project Management",
     items: [
       "Local technical sales and engineering support",
