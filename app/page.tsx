@@ -43,6 +43,45 @@ const solutionsData: SolutionCategory[] = [
   },
 ];
 
+const customerRefs = [
+  {
+    customer: "Briggs & Stratton",
+    equipment: ["Battery Manufacture Line System"],
+    services: "Engineering design, machine build, commissioning and production support",
+    location: "Stone Mountain, GA",
+  },
+  {
+    customer: "Brand Name",
+    equipment: ["Battery Cell/Module/Pack Cycler", "Double-deck Battery Cell Climatic Test Chamber", "BMS HiL Test System"],
+    services: "Engineering design, commissioning and application support",
+    location: "Auburn Hills, MI",
+  },
+  {
+    customer: "Brand Name",
+    equipment: ["Battery Module/Pack Cycler", "Walk-In Battery Test Chamber"],
+    services: "Engineering design, commissioning and application support",
+    location: "Tuscaloosa, AL",
+  },
+  {
+    customer: "Brand Name",
+    equipment: ["QA Lab Equipment", "IQC Equipment", "Battery Testing Accessories and Parts"],
+    services: "Commissioning and Application Support",
+    location: "Reno, NV",
+  },
+  {
+    customer: "Brand Name",
+    equipment: ["Battery Cell Cycler 5V300A8CH"],
+    services: "Commissioning, Training and Application Support",
+    location: "La Puente, CA",
+  },
+  {
+    customer: "Brand Name",
+    equipment: ["Battery Cell Cyclers", "Battery Module/Pack Cyclers"],
+    services: "Commissioning, Training and Application Support",
+    location: "Sunnyvale, CA",
+  },
+];
+
 export default function Home() {
   const [activeTab, setActiveTab] = useState<number>(1);
 
@@ -80,6 +119,7 @@ export default function Home() {
       </section>
 
       {/* 2. Partners / Clients Section */}
+      {/*}
       <section className="clients-section">
         <motion.h2
           className="clients-heading"
@@ -109,7 +149,49 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
-      
+      */}
+
+      {/* 2b. Customer References Marquee */}
+      <section className="refs-section">
+        <div className="refs-header">
+          <span className="cap-tag">CUSTOMER STORIES</span>
+        </div>
+        <div className="refs-marquee-wrapper">
+          <div className="refs-marquee-track">
+            {[...customerRefs, ...customerRefs].map((ref, i) => (
+              <div key={i} className="refs-card">
+                <div className="refs-card-top">
+                  <h3 className="refs-card-customer">{ref.customer}</h3>
+                  <span className="refs-card-equipment-preview">
+                    {ref.equipment[0]}
+                  </span>
+                  <span className="refs-card-location">
+                    <span className="refs-pin">⊙</span> {ref.location}
+                  </span>
+                </div>
+                <div className="refs-card-divider" />
+                <div className="refs-card-section">
+                  <p className="refs-card-label">DELIVERED EQUIPMENT</p>
+                  <ul className="refs-card-list">
+                    {ref.equipment.map((e, j) => (
+                      <li key={j} className="refs-card-item">
+                        <span className="refs-bullet" />
+                        {e}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="refs-card-divider" />
+                <div className="refs-card-section">
+                  <p className="refs-card-label">SERVICES</p>
+                  <p className="refs-card-services">{ref.services}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Value Proposition Section */}
       <section className="value-prop-section">
         <div className="vp-container">
@@ -152,18 +234,12 @@ export default function Home() {
                     className="cap-tab-item"
                     onClick={() => setActiveTab(category.id)}
                   >
-                    {/* Dark Green Top Active Indicator Bar */}
                     <div className={`cap-indicator-line ${isActive ? "visible" : ""}`} />
-
-                    {/* Standard Title for all items - light green when active */}
                     <h3 className={`cap-tab-title ${isActive ? "active" : ""}`}>
                       {category.title}
                     </h3>
-
                     <div className={`cap-description-box ${isActive ? "open" : ""}`}>
                       <p className="cap-description-text">{category.description}</p>
-                      
-                      {/* Sub-section link mapping based on type */}
                       {category.isSpecial ? (
                         <Link href="/store" className="explore-link special-store-link">
                           Store ↗

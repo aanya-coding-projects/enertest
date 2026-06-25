@@ -168,7 +168,7 @@ body {
   object-position: center top;
   opacity: 1;
   transition: opacity 1.5s ease;
-  filter: saturate(1.4) brightness(1.1) contrast(1.05);
+  filter: brightness(0.92) saturate(1.7) contrast(1);
 }
 
 .hero-video.loaded {
@@ -180,10 +180,10 @@ body {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.1) 0%,
-    rgba(0, 0, 0, 0.15) 40%,
-    rgba(0, 0, 0, 0.55) 70%,
-    rgba(0, 0, 0, 0.78) 100%
+    rgba(0, 30, 60, 0.18) 0%,
+    rgba(0, 20, 45, 0.12) 35%,
+    rgba(0, 15, 35, 0.5) 65%,
+    rgba(0, 10, 25, 0.75) 100%
   );
   z-index: 1;
 }
@@ -203,23 +203,178 @@ body {
 .hero-title {
   color: white;
   font-size: clamp(2.5rem, 5vw, 4.5rem);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin: 0 0 1rem 0;
   max-width: 900px;
-  line-height: 1.15;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  line-height: 1.1;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
 }
 
 .hero-subtitle {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(0.8rem, 1.4vw, 0.95rem);
   font-weight: 500;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
   margin: 0;
-  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Customer References Marquee ── */
+.refs-section {
+  padding: 72px 0 64px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.refs-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0 24px;
+}
+
+.refs-headline {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: #111;
+  margin-top: 10px;
+}
+
+/* Marquee track */
+.refs-marquee-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  /* fade edges */
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.refs-marquee-track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: refs-scroll 38s linear infinite;
+}
+
+.refs-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes refs-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Individual card */
+.refs-card {
+  flex-shrink: 0;
+  width: 300px;
+  background: #fff;
+  border: 1px solid #e4e4e4;
+  border-radius: 12px;
+  padding: 24px 22px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.refs-card:hover {
+  box-shadow: 0 6px 24px rgba(30, 100, 50, 0.13);
+  transform: translateY(-3px);
+}
+
+.refs-card-top {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.refs-card-customer {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+}
+
+.refs-card-equipment-preview {
+  font-size: 0.82rem;
+  color: #4a9e6b; /* your mid-green */
+  font-weight: 500;
+}
+
+.refs-card-location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 2px;
+}
+
+.refs-pin {
+  color: #888;
+  font-size: 0.85rem;
+}
+
+.refs-card-divider {
+  height: 1px;
+  background: #efefef;
+  margin: 14px 0;
+}
+
+.refs-card-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.refs-card-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #aaa;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.refs-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.refs-card-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+.refs-bullet {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2d7a4f; /* your dark green */
+  margin-top: 5px;
+}
+
+.refs-card-services {
+  font-size: 0.82rem;
+  color: #333;
+  line-height: 1.5;
+  margin: 0;
 }
 
 /* Clients Section */
