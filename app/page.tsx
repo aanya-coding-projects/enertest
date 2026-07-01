@@ -240,15 +240,9 @@ export default function Home() {
                     </h3>
                     <div className={`cap-description-box ${isActive ? "open" : ""}`}>
                       <p className="cap-description-text">{category.description}</p>
-                      {category.isSpecial ? (
-                        <Link href="/store" className="explore-link special-store-link">
-                          Store ↗
-                        </Link>
-                      ) : (
-                        <Link href="/products" className="explore-link">
-                          Explore More →
-                        </Link>
-                      )}
+                      <Link href={category.isSpecial ? "/quote" : "/products"} className="explore-link">
+                        {category.isSpecial ? "Request a Quote →" : "Explore More →"}
+                      </Link>
                     </div>
                   </div>
                 );

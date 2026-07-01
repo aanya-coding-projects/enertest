@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ShoppingCart } from "lucide-react";
-import { useCart } from "@/context/CartContext";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -11,8 +10,6 @@ export default function Navbar() {
   const [visible, setVisible] = useState(true);
   const [mounted, setMounted] = useState(false);
   const lastScrollY = useRef(0);
-  const { totalItems, setIsCartOpen } = useCart();
-
   useEffect(() => {
     setMounted(true);
     const check = () => setIsMobile(window.innerWidth < 640);
@@ -33,7 +30,7 @@ export default function Navbar() {
 
   if (!mounted) return null;
 
-  const navItems = ["Home", "Products", "Store", "About", "Contact"];
+  const navItems = ["Home", "Products", "About", "Contact"];
 
   return (
     <>
@@ -54,20 +51,12 @@ export default function Navbar() {
                 <span className="nav-link-underline" />
               </Link>
             ))}
-            <button className="navbar-cart-btn" onClick={() => setIsCartOpen(true)} aria-label="Open cart">
-              <ShoppingCart size={18} />
-              {totalItems > 0 && <span className="navbar-cart-count">{totalItems}</span>}
-            </button>
             <Link href="/quote" className="nav-quote-btn">Request a Quote</Link>
           </div>
         )}
 
         {isMobile && (
           <div className="navbar-mobile-right">
-            <button className="navbar-cart-btn" onClick={() => setIsCartOpen(true)} aria-label="Open cart">
-              <ShoppingCart size={18} />
-              {totalItems > 0 && <span className="navbar-cart-count">{totalItems}</span>}
-            </button>
             <button className="navbar-hamburger" onClick={() => setOpen(!open)} aria-label="Toggle menu">
               {open ? <X size={30} /> : <Menu size={30} />}
             </button>

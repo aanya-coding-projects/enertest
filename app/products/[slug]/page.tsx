@@ -4,11 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useParams, notFound } from "next/navigation";
-import { ShoppingCart, Check } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { getProductBySlug } from "@/data/products";
-import { getStoreProductById } from "@/data/storeProducts";
-import { useCart } from "@/context/CartContext";
 
 // ─── Product data ─────────────────────────────────────────────────────────────
 // carouselImages: 4 paths, can repeat the same image if you only have one.

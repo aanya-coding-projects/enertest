@@ -25,7 +25,7 @@ export default function Footer() {
               <Link href="/products" className="footer-link">Test System Solutions</Link>
               <Link href="/products" className="footer-link">Production & Automation</Link>
               <Link href="/products" className="footer-link">Engineering Services</Link>
-              <Link href="/store"    className="footer-link">Maintenance & Auxiliary</Link>
+              <Link href="/quote"    className="footer-link">Maintenance & Auxiliary</Link>
             </div>
           </div>
 
@@ -34,7 +34,7 @@ export default function Footer() {
             <div className="footer-links-col">
               <Link href="/about"   className="footer-link">About Us</Link>
               <Link href="/contact" className="footer-link">Contact</Link>
-              <Link href="/store"   className="footer-link">Store</Link>
+              <Link href="/quote"   className="footer-link">Request a Quote</Link>
               <Link href="/quote"   className="footer-link">Request a Quote</Link>
             </div>
           </div>

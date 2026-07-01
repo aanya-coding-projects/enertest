@@ -42,10 +42,25 @@ export default function QuotePage() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => { setLoading(false); setSubmitted(true); }, 1400);
+    setError("");
+    try {
+      const res = await fetch("/api/quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("Request failed");
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again or email us directly.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -194,6 +209,7 @@ export default function QuotePage() {
                 />
               </div>
 
+              {error && <p style={{ color: "#c0392b", fontSize: "14px", marginBottom: "8px" }}>{error}</p>}
               <button type="submit" className="form-submit-btn" disabled={loading}>
                 {loading ? <span className="form-btn-loading">Submitting…</span> : <><Send size={15} /> Submit Quote Request</>}
               </button>
