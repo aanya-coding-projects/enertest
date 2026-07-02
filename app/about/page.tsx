@@ -269,50 +269,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-
-      {/* Case Studies */}
-      <section className="about-section about-section-gray">
-        <div className="about-section-inner">
-          <motion.div className="about-section-header" {...fadeUp}>
-            <span className="cap-tag">PROJECT REFERENCES</span>
-            <h2 className="about-section-title">Delivered across the United States.</h2>
-            <p className="about-section-sub">A selection of completed customer engagements.</p>
-          </motion.div>
-          <div className="about-cases-grid">
-            {caseStudies.map((cs, i) => (
-              <motion.div
-                key={cs.location}
-                className="about-case-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-              >
-                <div className="about-case-location">
-                  <span className="about-case-pin"></span>
-                  {cs.location}
-                </div>
-                <div className="about-case-section">
-                  <p className="about-case-label">Delivered Equipment</p>
-                  <ul className="about-case-list">
-                    {cs.equipment.map((e, j) => (
-                      <li key={j} className="about-case-item">
-                        <span className="about-value-dot" />
-                        {e}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="about-case-section">
-                  <p className="about-case-label">Services</p>
-                  <p className="about-case-services">{cs.services}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="about-cta-section">
         <div className="about-section-inner">

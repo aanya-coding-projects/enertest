@@ -229,6 +229,14 @@ body {
   overflow: hidden;
 }
 
+.refs-card-logo{
+    display:block;
+    margin: 18px auto 25px;
+    object-fit:contain;
+    max-width:150px;
+    height:80px;
+}
+
 .refs-header {
   text-align: center;
   margin-bottom: 40px;
@@ -270,22 +278,32 @@ body {
 
 /* Individual card */
 .refs-card {
-  flex-shrink: 0;
-  width: 300px;
-  background: #fff;
-  border: 1px solid #e4e4e4;
-  border-radius: 12px;
-  padding: 24px 22px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+
+    width: 260px;
+    min-height: 270px;
+
+    padding: 24px;
+
+    border-radius: 20px;
+    background: #fff;
+
+    transition: .25s;
 }
 
 .refs-card:hover {
   box-shadow: 0 6px 24px rgba(30, 100, 50, 0.13);
   transform: translateY(-3px);
+}
+
+.refs-card-title {
+    text-align: center;
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.2;
+
+    margin: 0 0 1px;
 }
 
 .refs-card-top {
@@ -295,11 +313,21 @@ body {
   margin-bottom: 16px;
 }
 
-.refs-card-customer {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #111;
-  margin: 0;
+
+
+.refs-card-cta {
+    color: #2f8b57;
+    font-weight: 600;
+    font-size: 0.9rem;
+
+    margin-top: auto;
+    padding-top: 12px;
+}
+
+.refs-card-content{
+    display:flex;
+    flex-direction:column;
+    flex:1;
 }
 
 .refs-card-equipment-preview {
@@ -326,6 +354,17 @@ body {
   height: 1px;
   background: #efefef;
   margin: 14px 0;
+}
+
+.refs-card-summary{
+    margin:0;
+    margin-top:0;
+
+    color:#555;
+    font-size:.8rem;
+    line-height:1.45;
+
+    flex:1;
 }
 
 .refs-card-section {
@@ -463,7 +502,7 @@ body {
 /* Heading Typography Styles */
 .cap-tag {
   color: #396548; /* Dark/Medium Green accent label */
-  font-size: 0.75rem;
+  font-size: 1.15rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   display: block;
@@ -476,7 +515,7 @@ body {
   letter-spacing: -0.03em;
   color: #000000;
   line-height: 1.12;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.70rem;
 }
 
 @media (min-width: 768px) {

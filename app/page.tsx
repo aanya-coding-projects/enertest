@@ -6,6 +6,7 @@ import HeroVideo from "@/components/HeroVideo";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import ValuePropStepper from "@/components/ValuePropStepper";
+import CustomerReferencesMarquee from "@/components/CustomerReferencesMarquee";
 
 interface SolutionCategory {
   id: number;
@@ -151,10 +152,11 @@ export default function Home() {
       </section>
       */}
 
-      {/* 2b. Customer References Marquee */}
+      <CustomerReferencesMarquee />
+      {/* 2b. Customer References Marquee
       <section className="refs-section">
         <div className="refs-header">
-          <span className="cap-tag">CUSTOMER STORIES</span>
+          <span className="cap-tag">Trusted by industry leaders.</span>
         </div>
         <div className="refs-marquee-wrapper">
           <div className="refs-marquee-track">
@@ -191,6 +193,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Value Proposition Section */}
       <section className="value-prop-section">
@@ -208,6 +211,7 @@ export default function Home() {
           </Link>
         </div>
       </section>
+      
 
       {/* 3. Capabilities Section */}
       <section className="capabilities-section">
