@@ -13,6 +13,7 @@ export default function CustomerReferencesMarquee() {
         <div className="refs-marquee-track">
           {[...customerRefs, ...customerRefs].map((ref, i) => (
             <Link
+              key={`${ref.slug}-${i}`}
               href={`/case-studies/${ref.slug}`}
               className="refs-card"
             >
