@@ -5,25 +5,31 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { categories } from "@/data/products";
+import FeaturedProducts from "@/components/FeaturedProducts";
 
 export default function Products() {
-  const [openCategory, setOpenCategory] = useState<string | null>("test-system-solutions");
+  const [openCategory, setOpenCategory] = useState<string | null>(null);
+    useEffect(() => {
+    console.log("URL:", window.location.href);
+    console.log("Hash:", window.location.hash);
 
-  useEffect(() => {
     const hash = window.location.hash.replace("#", "");
-    if (hash) {
-      setOpenCategory(hash);
-      setTimeout(() => {
-        const el = document.getElementById(hash);
-        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 100);
-    }
+
+    if (!hash) return;
+
+    setOpenCategory(hash);
+
+    setTimeout(() => {
+      document.getElementById(hash)?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 100);
   }, []);
 
   return (
     <main>
       <Navbar />
-
       {/* Page Header */}
       <section className="products-header">
         <motion.span
@@ -52,6 +58,7 @@ export default function Products() {
           All solutions are available via direct consultation with our team.
         </motion.p>
       </section>
+      <FeaturedProducts />
 
       {/* Category Accordion */}
       <section className="products-categories">

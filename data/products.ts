@@ -57,6 +57,33 @@ export const categories: Category[] = [
           { slug: "battery-test-chiller", name: "Battery Test Chiller", image: "/Images/prod11.png" },
         ],
       },
+        {
+          name: "Material & Electrode Characterization",
+          products: [
+            {
+              slug: "powder-resistivity-compaction-density-system",
+              name: "IEST Powder Resistivity & Compaction Density Measurement System (PRCD3100)",
+              image: "/Images/powerres.png",
+              description:
+                "Powder Compaction Density & Powder Resistivity Measurement System combined with high-precision pressure control, thickness and resistance testing system, free choice of four-probe and two-probe method. Accurately powder resistivity tests and compaction density measurements for materials R&D and for monitoring batch-to-batch stability of battery powder materials.",
+            },
+            {
+              slug: "battery-electrode-resistance-system",
+              name: "Battery Electrode Resistance System",
+              image: "/Images/elec.png",
+              description:
+                "IEST Lithium Battery Electrode Sheet Resistance Tester(BER2500)",
+            },
+            
+            {
+              slug: "in-situ-anode-swelling-screening-system",
+              name: "IEST In-Situ Silicon-Based Anode Swelling Rapid Screening System (RSS1400)",
+              image: "/Images/in-situ.png",
+              description:
+                "The IEST In-Situ Silicon-Based Anode Swelling Rapid Screening System (RSS1400) is designed for four-channel simultaneous in-situ swelling thickness testing of silicon-based or graphite-based pouch cells, laminates, and model buttons during charge-discharge processes. It helps evaluate material and cell swelling performance with visual operation and one-click data export.",
+            },
+          ],
+        },
     ],
   },
   {
@@ -131,4 +158,16 @@ export function getProductBySlug(slug: string): { product: Product; category: Ca
     }
   }
   return null;
+}
+
+export const featuredProductSlugs = [
+  "powder-resistivity-compaction-density-system",
+  "battery-electrode-resistance-system",
+  "in-situ-anode-swelling-screening-system",
+];
+ 
+export function getFeaturedProducts(): Product[] {
+  return featuredProductSlugs
+    .map((slug) => getProductBySlug(slug)?.product)
+    .filter((p): p is Product => Boolean(p));
 }

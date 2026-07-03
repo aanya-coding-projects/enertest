@@ -93,6 +93,43 @@ const PRODUCT_DATA: Record<string, ProductEntry> = {
     supplementLayout: "stacked",
   },
 
+  "powder-resistivity-compaction-density-system": {
+    carouselImages: ["/Images/powerres.png"],
+    applications: [
+      "Lithium (sodium) cathode and anode electrode powders (LCO/NCM/LFP/Graphite, etc.)",
+      "Conductive agents",
+      "Solid electrolyte powders",
+      "Other micron-sized powder materials, etc.",
+    ],
+    features: [
+      "Ultra-wide pressurization range (maximum 350MPa) and ultra-wide resistance measurement range (1200MΩ)",
+      "When measuring resistance, two-probe and four-probe dual principles can be switched freely",
+      "Fully automatic test software, free parameter setting, one-click start",
+      "Real-time monitoring and output of pressure, ambient temperature, ambient humidity, thickness, resistance, resistivity, conductivity, compaction density and other parameter curves, with automatic saving of test data",
+      "Multiple powder test modes: pressurization, single-point pressure relief, steady-state pressure relief",
+      "Equipped with standard thickness blocks and resistance blocks calibrated by a third-party metrology institute",
+    ],
+    supplements: [],
+    supplementLayout: "stacked",
+  },
+
+  "in-situ-anode-swelling-screening-system": {
+    carouselImages: ["/Images/in-situ.png"],
+    applications: [
+      "Pouch cell",
+      "Laminates and coin cell",
+      "In-situ swelling thickness testing",
+    ],
+    features: [
+      "In-situ characterization of the expansion thickness change of silicon-based battery cells under different pressures",
+      "Four-channel simultaneous testing of multiple battery cells",
+      "Adapts to in-situ testing of various battery cell structures: model buckle battery, stacked battery, soft pack battery, etc.",
+      "Visual operation interface with one-click export of data reports",
+    ],
+    supplements: [],
+    supplementLayout: "stacked",
+  },
+
   "cell-expansion-test-kit": {
     carouselImages: [
       "/Images/products/Pro13.png",
@@ -267,7 +304,8 @@ const PRODUCT_DATA: Record<string, ProductEntry> = {
       {
         label: "Cell Test Fixture Demo",
         src: "/Videos/CellTest.mp4",
-        description: "Customizable cell test fixtures as part of a turn-key solution.",
+        description:
+          "Customizable cell test fixtures as part of a turn-key solution.",
       },
       { label: "System Specs", src: "/Images/products/Pro33.png" },
     ],
@@ -354,9 +392,15 @@ const PRODUCT_DATA: Record<string, ProductEntry> = {
     supplementLayout: "stacked",
     gallery: [
       { label: "Prismatic Cell Fixture", src: "/Images/products/Pro44.png" },
-      { label: "Multi-Channel Fixture Rack", src: "/Images/products/Pro45.png" },
+      {
+        label: "Multi-Channel Fixture Rack",
+        src: "/Images/products/Pro45.png",
+      },
       { label: "Empty Battery Rack", src: "/Images/products/Pro46.png" },
-      { label: "Cell Expansion Test Fixture", src: "/Images/products/Pro47.png" },
+      {
+        label: "Cell Expansion Test Fixture",
+        src: "/Images/products/Pro47.png",
+      },
     ],
   },
 
@@ -439,10 +483,18 @@ function ImageCarousel({ slides }: { slides: string[] }) {
 
       {slides.length > 1 && (
         <>
-          <button className="carousel-arrow carousel-arrow-left" onClick={prev} aria-label="Previous image">
+          <button
+            className="carousel-arrow carousel-arrow-left"
+            onClick={prev}
+            aria-label="Previous image"
+          >
             ‹
           </button>
-          <button className="carousel-arrow carousel-arrow-right" onClick={next} aria-label="Next image">
+          <button
+            className="carousel-arrow carousel-arrow-right"
+            onClick={next}
+            aria-label="Next image"
+          >
             ›
           </button>
         </>
@@ -454,19 +506,29 @@ function ImageCarousel({ slides }: { slides: string[] }) {
 // ─── Accordion ────────────────────────────────────────────────────────────────
 
 function AccordionSection({
-  title, items, isOpen, onToggle,
+  title,
+  items,
+  isOpen,
+  onToggle,
 }: {
-  title: string; items: string[]; isOpen: boolean; onToggle: () => void;
+  title: string;
+  items: string[];
+  isOpen: boolean;
+  onToggle: () => void;
 }) {
   return (
     <div className={`accordion-section${isOpen ? " open" : ""}`}>
       <button className="accordion-header" onClick={onToggle}>
-        <span className={`accordion-title${isOpen ? " active" : ""}`}>{title}</span>
+        <span className={`accordion-title${isOpen ? " active" : ""}`}>
+          {title}
+        </span>
         <motion.span
           className="accordion-icon"
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.22 }}
-        >+</motion.span>
+        >
+          +
+        </motion.span>
       </button>
       <AnimatePresence initial={false}>
         {isOpen && (
@@ -501,7 +563,15 @@ function AccordionSection({
 
 // ─── Supplement: full-width stacked image (default) ───────────────────────────
 
-function SupplementStacked({ src, label, index }: { src: string; label: string; index: number }) {
+function SupplementStacked({
+  src,
+  label,
+  index,
+}: {
+  src: string;
+  label: string;
+  index: number;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -509,8 +579,10 @@ function SupplementStacked({ src, label, index }: { src: string; label: string; 
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold: 0.08 }
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true);
+      },
+      { threshold: 0.08 },
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -528,7 +600,12 @@ function SupplementStacked({ src, label, index }: { src: string; label: string; 
       transition={{ duration: 0.6, delay: 0.05, ease: "easeOut" }}
     >
       {isYouTube ? (
-        <a href={src} target="_blank" rel="noopener noreferrer" className="supplement-video-link">
+        <a
+          href={src}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="supplement-video-link"
+        >
           {label}
         </a>
       ) : (
@@ -555,7 +632,12 @@ function SupplementStacked({ src, label, index }: { src: string; label: string; 
 
 // ─── Supplement: horizontal 4-column card with image + title + description ────
 
-function SupplementCard({ src, label, description, index }: Supplement & { index: number }) {
+function SupplementCard({
+  src,
+  label,
+  description,
+  index,
+}: Supplement & { index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -563,8 +645,10 @@ function SupplementCard({ src, label, description, index }: Supplement & { index
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold: 0.08 }
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true);
+      },
+      { threshold: 0.08 },
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -622,133 +706,292 @@ export default function ProductPage() {
   const { product, category } = result;
   const data = PRODUCT_DATA[slug];
 
-  const carouselSlides: string[] = data?.carouselImages ?? (product.image ? [product.image] : []);
+  const carouselSlides: string[] =
+    data?.carouselImages ?? (product.image ? [product.image] : []);
 
-  const [openSection, setOpenSection] = useState<"applications" | "features" | null>("applications");
+  const [openSection, setOpenSection] = useState<
+    "applications" | "features" | null
+  >("applications");
+  const [activeTab, setActiveTab] = useState<
+    "description" | "applications" | "video" | "specs" | "download"
+  >("description");
   const toggle = (s: "applications" | "features") =>
     setOpenSection((prev) => (prev === s ? null : s));
 
-  const hasSupplements = data?.supplements && data.supplements.filter(s => s.src).length > 0;
-  const isGalleryOnly = data?.gallery && data.gallery.length > 0 && carouselSlides.length === 0;
+  const hasSupplements =
+    data?.supplements && data.supplements.filter((s) => s.src).length > 0;
+  const isGalleryOnly =
+    data?.gallery && data.gallery.length > 0 && carouselSlides.length === 0;
 
   return (
     <main className="pd-main">
       <Navbar />
 
-      <div className="pd-container">
-        {/* Breadcrumb */}
-        <nav className="pd-breadcrumb">
-        <Link href="/products">Products</Link>
-        <span className="pd-crumb-sep">›</span>
-        <Link href={`/products#${category.id}`}>{category.title}</Link>
-        <span className="pd-crumb-sep">›</span>
-        <span className="pd-crumb-current">{product.name}</span>
-      </nav>
+      <div className="pd-shell">
+        <div className="pd-content">
+          {/* Breadcrumb */}
+          <nav className="pd-breadcrumb">
+            <Link href="/products">Products</Link>
+            <span className="pd-crumb-sep">›</span>
+            <Link href={`/products#${category.id}`}>{category.title}</Link>
+            <span className="pd-crumb-sep">›</span>
+            <span className="pd-crumb-current">{product.name}</span>
+          </nav>
 
-        {/* Gallery-only layout: full-width header then gallery */}
-        {isGalleryOnly ? (
-          <>
-            <motion.div
-              className="pd-right"
-              style={{ maxWidth: "100%" }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55 }}
-            >
-              <p className="pd-category-tag">{category.title}</p>
-              <h1 className="pd-title">{product.name}</h1>
-              <hr className="pd-divider" />
-              {product.description && <p className="pd-description">{product.description}</p>}
-              <Link href="/contact" className="pd-cta-link">
-                Interested in this product? Get in touch →
-              </Link>
-            </motion.div>
-
-            <section className="pd-supplements">
-              <div className="pd-supplements-divider" />
-              <h2 className="pd-supplements-title">Product Range</h2>
-              <GalleryGrid items={data.gallery!} />
-            </section>
-          </>
-        ) : (
-          <>
-            {/* Standard two-column layout */}
-            <div className="pd-grid">
-              {/* LEFT */}
-              <motion.div
-                className="pd-left"
-                initial={{ opacity: 0, x: -24 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.55 }}
-              >
-                {carouselSlides.length === 1 ? (
-                  <div className="carousel-root">
-                    <img src={carouselSlides[0]} alt={product.name} className="carousel-img" />
-                  </div>
-                ) : carouselSlides.length > 1 ? (
-                  <ImageCarousel slides={carouselSlides} />
-                ) : null}
-              </motion.div>
-
-              {/* RIGHT */}
+          {/* Gallery-only layout: full-width header then gallery */}
+          {isGalleryOnly ? (
+            <>
               <motion.div
                 className="pd-right"
-                initial={{ opacity: 0, x: 24 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.55, delay: 0.1 }}
+                style={{ maxWidth: "100%" }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.55 }}
               >
                 <p className="pd-category-tag">{category.title}</p>
                 <h1 className="pd-title">{product.name}</h1>
                 <hr className="pd-divider" />
-
                 {product.description && (
                   <p className="pd-description">{product.description}</p>
                 )}
-
-                {data && data.applications.length > 0 && data.features.length > 0 && (
-                  <div className="pd-accordions">
-                    <AccordionSection
-                      title="Applications"
-                      items={data.applications}
-                      isOpen={openSection === "applications"}
-                      onToggle={() => toggle("applications")}
-                    />
-                    <AccordionSection
-                      title="Features"
-                      items={data.features}
-                      isOpen={openSection === "features"}
-                      onToggle={() => toggle("features")}
-                    />
-                  </div>
-                )}
-
-                <Link href="/contact" className="pd-cta-link">
-                  Interested in this product? Get in touch →
+                <Link
+                  href={`/quote?product=${encodeURIComponent(product.name)}`}
+                  className="pd-cta-link"
+                >
+                  Request a Quote →
                 </Link>
               </motion.div>
-            </div>
 
-            {/* Supplementary section */}
-            {hasSupplements && (
               <section className="pd-supplements">
                 <div className="pd-supplements-divider" />
-                <h2 className="pd-supplements-title">Technical Resources</h2>
+                <h2 className="pd-supplements-title">Product Range</h2>
+                <GalleryGrid items={data.gallery!} />
+              </section>
+            </>
+          ) : (
+            <>
+              {/* Standard two-column layout */}
+              <div className="pd-grid">
+                {/* LEFT */}
+                <motion.div
+                  className="pd-left"
+                  initial={{ opacity: 0, x: -24 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.55 }}
+                >
+                  {carouselSlides.length === 1 ? (
+                    <div className="carousel-root">
+                      <img
+                        src={carouselSlides[0]}
+                        alt={product.name}
+                        className="carousel-img"
+                      />
+                    </div>
+                  ) : carouselSlides.length > 1 ? (
+                    <ImageCarousel slides={carouselSlides} />
+                  ) : null}
+                </motion.div>
 
-                {data.supplementLayout === "row4" ? (
-                  <div className="pd-supplements-row4">
-                    {data.supplements.filter(s => s.src).map((s, i) => (
-                      <SupplementCard key={i} index={i} {...s} />
+                {/* RIGHT */}
+                <motion.div
+                  className="pd-right"
+                  initial={{ opacity: 0, x: 24 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.55, delay: 0.1 }}
+                >
+                  <p className="pd-category-tag">{category.title}</p>
+                  <h1 className="pd-title">{product.name}</h1>
+                  <hr className="pd-divider" />
+
+                  {product.description && (
+                    <p className="pd-description">{product.description}</p>
+                  )}
+
+                  {data &&
+                    data.applications.length > 0 &&
+                    data.features.length > 0 && (
+                      <div className="pd-accordions">
+                        <AccordionSection
+                          title="Applications"
+                          items={data.applications}
+                          isOpen={openSection === "applications"}
+                          onToggle={() => toggle("applications")}
+                        />
+                        <AccordionSection
+                          title="Features"
+                          items={data.features}
+                          isOpen={openSection === "features"}
+                          onToggle={() => toggle("features")}
+                        />
+                      </div>
+                    )}
+
+                  <Link
+                    href={`/quote?product=${encodeURIComponent(product.name)}`}
+                    className="pd-cta-link"
+                  >
+                    Request a Quote →
+                  </Link>
+                </motion.div>
+              </div>
+
+              {/* ───────────── TAB NAV ───────────── */}
+              <div className="pd-tabs-wrapper">
+                <div className="pd-tabs">
+                  {[
+                    "description",
+                    "applications",
+                    "video",
+                    "specs",
+                    "download",
+                  ].map((tab) => (
+                    <button
+                      key={tab}
+                      onClick={() => setActiveTab(tab as any)}
+                      className={`pd-tab ${activeTab === tab ? "active" : ""}`}
+                    >
+                      {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div className="pd-tab-content">
+                {activeTab === "description" && (
+                  <div className="pd-description-section">
+                    <div className="pd-block">
+                      <div className="pd-text">
+                        <h2>Introduction</h2>
+                        <p>
+                          The BER Series is a high-precision electrode
+                          resistance analyzer designed for advanced battery
+                          research and production quality control. It enables
+                          direct measurement of true through-thickness
+                          resistance, capturing coating resistance, interface
+                          contact resistance, and current collector effects in a
+                          single unified system.
+                        </p>
+                      </div>
+                      <img src="/Images/products/IEST/Pro1.png" />
+                    </div>
+
+                    <div className="pd-block reverse">
+                      <img src="/Images/products/IEST/Pro2.png" />
+                      <div className="pd-text">
+                        <h3>Testing Capabilities</h3>
+                        <ul>
+                          <li>Slurry homogeneity evaluation</li>
+                          <li>Conductive agent dispersion detection</li>
+                          <li>Electrode formulation comparison</li>
+                          <li>Failure analysis of conductive networks</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="pd-block">
+                      <div className="pd-text">
+                        <h3>Traditional Limitations</h3>
+                        <p>
+                          Existing probe methods struggle with heterogeneous
+                          battery electrodes due to surface roughness and
+                          composite structures.
+                        </p>
+                      </div>
+                      <img src="/Images/products/IEST/Pro3.png" />
+                    </div>
+
+                    <div className="pd-block reverse">
+                      <img src="/Images/products/IEST/Pro4.png" />
+                      <div className="pd-text">
+                        <h3>IEST Solution</h3>
+                        <p>
+                          Dual pressure-controlled probes measure true
+                          through-thickness resistance with higher accuracy and
+                          repeatability.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                {activeTab === "applications" && (
+                  <div className="pd-app-grid">
+                    {[
+                      "Active Material Evaluation",
+                      "Conductive Agent Analysis",
+                      "Primer Coating Evaluation",
+                      "Batch Stability Monitoring",
+                      "Electrode Conductivity Trends",
+                      "Failure Analysis",
+                    ].map((title, i) => (
+                      <div key={i} className="pd-app-card">
+                        <img
+                          src={`/Images/products/IEST/App/Pro${i + 1}.png`}
+                        />
+                        <h3>{title}</h3>
+                        <p>{data.applications?.[i]}</p>
+                      </div>
                     ))}
                   </div>
-                ) : (
-                  data.supplements.filter(s => s.src).map((s, i) => (
-                    <SupplementStacked key={i} index={i} src={s.src} label={s.label} />
-                  ))
                 )}
-              </section>
-            )}
-          </>
-        )}
+                {activeTab === "video" && (
+                  <div className="pd-video">
+                    <iframe
+                      width="100%"
+                      height="500"
+                      src="https://www.youtube.com/embed/SCX0MA1rSng"
+                      allowFullScreen
+                    />
+                  </div>
+                )}
+                {activeTab === "specs" && (
+                  <img
+                    src="/Images/products/IEST/Spec.png"
+                    className="pd-spec-img"
+                  />
+                )}
+                {activeTab === "download" && (
+                  <div className="pd-download">
+                    <a
+                      href="https://iestbattery.com/wp-content/uploads/2024/05/IEST-Lithium-Battery-Electrode-Resistance-Tester.pdf"
+                      target="_blank"
+                      className="pd-download-btn"
+                    >
+                      Download PDF →
+                    </a>
+                  </div>
+                )}
+              </div>
+
+              {/* Supplementary section */}
+              {hasSupplements && (
+                <section className="pd-supplements">
+                  <div className="pd-supplements-divider" />
+                  <h2 className="pd-supplements-title">Technical Resources</h2>
+
+                  {data.supplementLayout === "row4" ? (
+                    <div className="pd-supplements-row4">
+                      {data.supplements
+                        .filter((s) => s.src)
+                        .map((s, i) => (
+                          <SupplementCard key={i} index={i} {...s} />
+                        ))}
+                    </div>
+                  ) : (
+                    data.supplements
+                      .filter((s) => s.src)
+                      .map((s, i) => (
+                        <SupplementStacked
+                          key={i}
+                          index={i}
+                          src={s.src}
+                          label={s.label}
+                        />
+                      ))
+                  )}
+                </section>
+              )}
+            </>
+          )}
+        </div>
       </div>
     </main>
   );

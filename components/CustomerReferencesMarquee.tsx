@@ -4,7 +4,7 @@ import { customerRefs } from "@/data/customerRefs";
 
 export default function CustomerReferencesMarquee() {
   return (
-    <section className="refs-section">
+    <section id="refs-section" className="refs-section">
       <div className="refs-header">
         <span className="cap-tag">Trusted by industry leaders.</span>
       </div>
