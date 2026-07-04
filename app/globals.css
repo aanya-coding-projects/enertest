@@ -1858,6 +1858,7 @@ ul.coming-soon-list li {
   min-height: 100vh;
   background: #ffffff;
   color: #111111;
+  padding-bottom: 5rem;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
@@ -1953,8 +1954,11 @@ right: 1rem;
 
 
 /* ── RIGHT: Info ─────────────────────────────────── */
-.pd-right { padding-top: 0.25rem; }
-
+.pd-right .pd-cta-link {
+  padding-top: 0.5rem;
+  margin-bottom: 2rem;
+  display: inline-block;
+}
 .pd-category-tag {
   font-size: 0.72rem;
   letter-spacing: 0.1em;
@@ -2321,6 +2325,7 @@ right: 1rem;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   margin-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .gallery-img-wrap {
@@ -3959,6 +3964,7 @@ right: 1rem;
   width: 100%;
   max-width: 1200px;
   padding: 0 24px;
+  padding-bottom: 5rem;
 }
 .pd-tabs-wrapper {
   width: 100%;
