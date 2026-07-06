@@ -7,6 +7,24 @@ import Navbar from "@/components/Navbar";
 import { categories } from "@/data/products";
 import FeaturedProducts from "@/components/FeaturedProducts";
 
+const IEST_FEATURED = [
+  {
+    slug: "prcd3100",
+    name: "Powder Resistivity & Compaction Density Measurement System",
+    image: "https://iestbattery.com/wp-content/uploads/2024/04/IEST-Powder-Resistivity-Compaction-Density-Measurement-System-PRCD3100.webp",
+  },
+  {
+    slug: "ber-series",
+    name: "Battery Electrode Resistance & Thickness Tester",
+    image: "https://iestbattery.com/wp-content/uploads/2024/04/IEST-Lithium-Battery-Electrode-Resistance-Tester.webp",
+  },
+  {
+    slug: "rss1400",
+    name: "Silicon-Based Anode Swelling Rapid Screening System",
+    image: "https://iestbattery.com/wp-content/uploads/2024/04/IEST-Silicon-Based-Anode-Swelling-In-Situ-Screening-System.webp",
+  },
+];
+
 export default function Products() {
   const [openCategory, setOpenCategory] = useState<string | null>(null);
     useEffect(() => {
@@ -104,6 +122,36 @@ export default function Products() {
                       className="category-content"
                     >
                       <p className="category-description">{category.description}</p>
+
+                      {/* IEST featured products shown above subcategories */}
+                      {category.id === "iest-products" && (
+                        <div className="iest-featured-section">
+                          <p className="iest-featured-label">Featured Products</p>
+                          <div className="product-grid">
+                            {IEST_FEATURED.map((product) => (
+                              <Link
+                                key={product.slug}
+                                href={`/products/${product.slug}`}
+                                className="product-card product-card-featured"
+                              >
+                                <div className="product-card-img-wrap">
+                                  <img
+                                    src={product.image}
+                                    alt={product.name}
+                                    className="product-card-img"
+                                  />
+                                </div>
+                                <div className="product-card-body">
+                                  <p className="product-card-name">{product.name}</p>
+                                  <span className="product-more-link">
+                                    More Info <span className="arrow">→</span>
+                                  </span>
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      )}
 
                       {category.subcategories.map((sub) => {
                         const activeProducts = sub.products.filter((p) => !p.comingSoon);

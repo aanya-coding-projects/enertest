@@ -1,54 +1,39 @@
-"use client";
-
-import Link from "next/link";
-import { useParams, notFound } from "next/navigation";
-import Navbar from "@/components/Navbar";
+import { Metadata } from "next";
 import { getProductBySlug } from "@/data/products";
-import { PRODUCT_DATA } from "@/data/productDetails";
-import StandardProductLayout from "@/components/products/StandardProductLayout";
-import AdvancedProductLayout from "@/components/products/AdvancedProductLayout";
+import { IEST_PRODUCT_DATA } from "@/data/iestProducts";
+import ProductPageClient from "./ProductPageClient";
 
-export default function ProductPage() {
-  const params = useParams();
-  const slug = typeof params.slug === "string" ? params.slug : "";
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+
+  const iestProduct = IEST_PRODUCT_DATA[slug];
+  if (iestProduct) {
+    return {
+      title: iestProduct.seoTitle,
+      description: iestProduct.seoDescription,
+    };
+  }
 
   const result = getProductBySlug(slug);
-  if (!result) notFound();
+  if (!result) return { title: "Product | EnerTest Solutions" };
 
-  const { product, category } = result;
-  const data = PRODUCT_DATA[slug];
-  const layout = data?.layout ?? "standard";
+  return {
+    title: `${result.product.name} | EnerTest Solutions`,
+    description:
+      result.product.description ??
+      `Explore the ${result.product.name} from EnerTest Solutions — industrial battery testing and manufacturing equipment.`,
+  };
+}
 
-  return (
-    <main className="pd-main">
-      <Navbar />
-
-      <div className="pd-shell">
-        <div className="pd-content">
-          {/* Breadcrumb */}
-          <nav className="pd-breadcrumb">
-            <Link href="/products">Products</Link>
-            <span className="pd-crumb-sep">›</span>
-            <Link href={`/products#${category.id}`}>{category.title}</Link>
-            <span className="pd-crumb-sep">›</span>
-            <span className="pd-crumb-current">{product.name}</span>
-          </nav>
-
-          {layout === "advanced" ? (
-            <AdvancedProductLayout
-              product={product}
-              category={category}
-              data={data as any}
-            />
-          ) : (
-            <StandardProductLayout
-              product={product}
-              category={category}
-              data={data as any}
-            />
-          )}
-        </div>
-      </div>
-    </main>
-  );
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  await params;
+  return <ProductPageClient />;
 }

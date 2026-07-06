@@ -148,6 +148,124 @@ export const categories: Category[] = [
       },
     ],
   },
+  {
+    id: "iest-products",
+    title: "IEST Characterization & Testing Instruments",
+    description:
+      "Authorized distribution of IEST's precision battery characterization instruments — covering material analysis, electrode testing, in-situ cell characterization, and electrochemical analysis for R&D and production QC.",
+    subcategories: [
+      {
+        name: "Raw Materials",
+        products: [
+          {
+            slug: "prcd3100",
+            name: "Powder Resistivity & Compaction Density Measurement System",
+            image: "https://iestbattery.com/wp-content/uploads/2024/04/IEST-Powder-Resistivity-Compaction-Density-Measurement-System-PRCD3100.webp",
+          },
+          {
+            slug: "bsr2300",
+            name: "Battery Slurry Resistivity Tester",
+            image: "https://iestbattery.com/wp-content/uploads/2024/04/IEST-Lithium-Battery-Slurry-Resistance-Tester.webp",
+          },
+          {
+            slug: "sems-series",
+            name: "Multi-Dimensional Solid Electrolyte Testing System",
+            image: "https://iestbattery.com/wp-content/uploads/2024/04/IEST-Multi-dimensional-Solid-Electrolyte-Testing-SystemSEMS-Series.webp",
+          },
+          {
+            slug: "spft2000",
+            name: "Single Particle Force Properties Testing System",
+            image: "https://iestbattery.com/wp-content/uploads/2024/05/IEST-Single-Particle-Force-Properties-Test-System-2-1.webp",
+          },
+        ],
+      },
+      {
+        name: "Peripheral Equipment",
+        products: [
+          {
+            slug: "ber-series",
+            name: "Battery Electrode Resistance & Thickness Tester",
+            image: "https://iestbattery.com/wp-content/uploads/2024/04/IEST-Lithium-Battery-Electrode-Resistance-Tester.webp",
+          },
+          {
+            slug: "ews-series",
+            name: "Electrode Electrolyte Wetting Testing System",
+            image: "https://iestbattery.com/wp-content/uploads/2024/04/IEST-Electrolyte-Wetting-Measurement-System-EWS-3-1.webp",
+          },
+          {
+            slug: "eic-series",
+            name: "Electrode Tortuosity & Separator Ion Conductivity Tester",
+            image: "https://iestbattery.com/wp-content/uploads/2024/05/IEST-Electrode-Tortuosity-Tester-and-Separator-Ion-Conductivity-Tester-1.webp",
+          },
+          {
+            slug: "bpd-series",
+            name: "Battery Pressure Distribution Mapping Sensor System",
+            image: "https://iestbattery.com/wp-content/uploads/2024/04/IEST-Battery-Pressure-Distrbution-Measure-System-BPD1000.webp",
+          },
+        ],
+      },
+      {
+        name: "Products & Applications",
+        products: [
+          {
+            slug: "swe-series",
+            name: "In-Situ Battery Cell Swelling Testing System",
+            image: "https://iestbattery.com/wp-content/uploads/2024/04/IEST-In-Situ-Cell-Swelling-Testing-System.webp",
+          },
+          {
+            slug: "mcs1000",
+            name: "In-Situ Model Coin Cell Swelling Testing System",
+            image: "https://iestbattery.com/wp-content/uploads/2024/04/IEST-Model-Coin-Cell-In-Situ-Swelling-Testing-System-3-1.webp",
+          },
+          {
+            slug: "rss1400",
+            name: "Silicon-Based Anode Swelling In-Situ Screening System",
+            image: "https://iestbattery.com/wp-content/uploads/2024/04/IEST-Silicon-Based-Anode-Swelling-In-Situ-Screening-System.webp",
+          },
+          {
+            slug: "ccs1100",
+            name: "Cylindrical Battery In-Situ Volume Swelling Testing System",
+            image: "https://iestbattery.com/wp-content/uploads/2024/05/IEST-Cylindrical-Battery-In-Situ-Volume-Swelling-Testing-System-1.webp",
+          },
+          {
+            slug: "gvm-series",
+            name: "In-Situ Battery Gassing Volume Analyzer",
+            image: "https://iestbattery.com/wp-content/uploads/2024/04/In-Situ-Battery-Gassing-Volume-Analyzer-GVM2200.webp",
+          },
+          {
+            slug: "msg2000",
+            name: "In-Situ Multi-Channel Battery Storage Gassing System",
+            image: "https://iestbattery.com/wp-content/uploads/2024/05/In-situ-Multi-channel-Storage-Gassing-Test-System-1.webp",
+          },
+          {
+            slug: "ert-series",
+            name: "High Precision Battery Cycler & Electrochemical Analyzer",
+            image: "https://iestbattery.com/wp-content/uploads/2024/05/IEST-Battery-Cycle-Tester-Electrochemical-Property-Analyzer-ERT-Series-1.webp",
+          },
+          {
+            slug: "ect-series",
+            name: "Battery Cycler Electrochemical Property Analyzer",
+            image: "https://iestbattery.com/wp-content/uploads/2025/03/IEST-Electrochemical-Property-Analyzer-ECT-Series.webp",
+          },
+          {
+            slug: "bit-series",
+            name: "Battery Impedance & Consistency Tester",
+            image: "https://iestbattery.com/wp-content/uploads/2024/05/IEST-Battery-Impedance-Tester-1.webp",
+          },
+        ],
+      },
+      {
+        name: "Production Line",
+        products: [
+          {
+            slug: "caas-series",
+            name: "Automatic Coin Cell Assembly System",
+            image: "https://iestbattery.com/wp-content/uploads/2026/04/IEST-Automatic-Coin-Cell-Assembly-SystemCAAS​-e1748397045278.webp",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export function getProductBySlug(slug: string): { product: Product; category: Category; subcategory: Subcategory } | null {
