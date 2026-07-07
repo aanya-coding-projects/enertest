@@ -177,6 +177,14 @@ export const categories: Category[] = [
             name: "Single Particle Force Properties Testing System",
             image: "https://iestbattery.com/wp-content/uploads/2024/05/IEST-Single-Particle-Force-Properties-Test-System-2-1.webp",
           },
+          {
+            slug: "leps-series",
+            name: "Automated Electrode Powder Sampling System",
+          },
+          {
+            slug: "spec-series",
+            name: "Single Particle Electrochemical Performance Testing System",
+          },
         ],
       },
       {
@@ -201,6 +209,10 @@ export const categories: Category[] = [
             slug: "bpd-series",
             name: "Battery Pressure Distribution Mapping Sensor System",
             image: "https://iestbattery.com/wp-content/uploads/2024/04/IEST-Battery-Pressure-Distrbution-Measure-System-BPD1000.webp",
+          },
+          {
+            slug: "bef1000",
+            name: "Battery Electrode Flexibility Testing System",
           },
         ],
       },
@@ -261,6 +273,11 @@ export const categories: Category[] = [
             slug: "caas-series",
             name: "Automatic Coin Cell Assembly System",
             image: "https://iestbattery.com/wp-content/uploads/2026/04/IEST-Automatic-Coin-Cell-Assembly-SystemCAAS​-e1748397045278.webp",
+          },
+          {
+            slug: "caas1000",
+            name: "Lab-scale Automatic Coin Cell Assembly Machine",
+            image: "https://iestbattery.com/wp-content/uploads/2025/11/IEST-Lab-scale-Automatic-Coin-Cell-Assembly-MachineCAAS1000-1-1.webp",
           },
         ],
       },

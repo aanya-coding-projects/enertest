@@ -567,4 +567,112 @@ export const IEST_PRODUCT_DATA: Record<string, IESTProduct> = {
     seoDescription:
       "IEST ECT Series: 0.01% precision battery cycler with GITT, PITT, CA, CP, and dQ/dV. Triple protection, auxiliary channel integration, private cloud backup for R&D and QC.",
   },
+
+  "caas1000": {
+    name: "Lab-scale Automatic Coin Cell Assembly Machine",
+    model: "CAAS1000",
+    category: "Production Line",
+    description:
+      "The IEST CAAS1000 is a compact, lab-scale automatic coin cell assembly machine designed for battery material R&D in glove box environments. It automates precise assembly of CR2016/CR2032 coin cells to eliminate manual variation, delivering reliable and repeatable electrochemical data for material screening, electrolyte formulation studies, and comparative cell experiments.",
+    features: [
+      "Fully automated coin cell assembly for CR2016/CR2032 formats",
+      "Designed for glove box operation in inert-atmosphere environments",
+      "Eliminates manual assembly variability for consistent electrochemical results",
+      "Compact lab-scale footprint suitable for research laboratories",
+      "Visual alignment system for accurate electrode and separator positioning",
+      "Supports high-throughput material screening workflows",
+    ],
+    applications: [
+      "Battery material R&D and formulation screening via standardized coin cells",
+      "Electrolyte and electrode material comparison studies requiring consistent assembly",
+      "Academic and industrial research requiring reliable coin cell preparation",
+      "Cathode, anode, and separator performance evaluation",
+    ],
+    carouselImages: [
+      "https://iestbattery.com/wp-content/uploads/2025/11/IEST-Lab-scale-Automatic-Coin-Cell-Assembly-MachineCAAS1000-1-1.webp",
+      "https://iestbattery.com/wp-content/uploads/2024/05/IEST-Coin-Cell-Automatic-Assembly-SystemCAAS-2.webp",
+    ],
+    seoTitle: "Lab-scale Automatic Coin Cell Assembly Machine | IEST CAAS1000",
+    seoDescription:
+      "IEST CAAS1000: lab-scale automatic coin cell assembly for glove box R&D. Eliminates manual variability for consistent, reproducible battery material testing.",
+  },
+
+  "bef1000": {
+    name: "Battery Electrode Flexibility Testing System",
+    model: "BEF1000",
+    category: "Peripheral Equipment",
+    description:
+      "The IEST Battery Electrode Flexibility Testing System (BEF1000) provides quantitative measurement of electrode mechanical flexibility and crack resistance under controlled bending stress. It supports R&D for flexible batteries, high-loading electrode development, and roll-to-roll process optimization by characterizing the mechanical integrity of coated electrode sheets.",
+    features: [
+      "Quantitative measurement of electrode bending radius and crack onset point",
+      "Automated test cycles with programmable bending angle and radius control",
+      "Supports flexible and rigid electrode substrate evaluation",
+      "High-resolution imaging for surface crack detection and analysis",
+      "Compatible with a range of electrode thicknesses and substrate types",
+      "Data export for statistical process analysis and batch comparison",
+    ],
+    applications: [
+      "Flexible battery electrode development and bending endurance evaluation",
+      "High-loading electrode mechanical integrity assessment",
+      "Roll-to-roll process and calendering effect optimization",
+      "Quality control of electrode flexibility for production consistency",
+    ],
+    carouselImages: [],
+    seoTitle: "Battery Electrode Flexibility Testing System | IEST BEF1000",
+    seoDescription:
+      "IEST BEF1000: quantitative flexibility and crack resistance testing for battery electrodes. Supports flexible battery R&D, high-loading electrode development, and QC.",
+  },
+
+  "leps-series": {
+    name: "Automated Electrode Powder Sampling System",
+    model: "LEPS Series",
+    category: "Raw Materials",
+    description:
+      "The IEST Automated Electrode Powder Sampling System (LEPS Series) provides precise, representative sampling of electrode active material powders for downstream analytical testing. It automates the sampling process to minimize human error and cross-contamination, ensuring reproducible material characterization across batches for both R&D and production quality control.",
+    features: [
+      "Automated powder sampling with programmable sample size and quantity control",
+      "Minimizes cross-contamination between samples through closed-system design",
+      "Compatible with cathode, anode, and mixed electrode powder materials",
+      "Ensures representative sampling from bulk material for accurate characterization",
+      "Data logging for traceability and batch-to-batch comparison",
+      "Compact design suitable for both laboratory and production environments",
+    ],
+    applications: [
+      "Electrode active material sampling for ICP, BET, and particle size analysis",
+      "Batch-to-batch consistency monitoring in battery powder production",
+      "Slurry and dry powder sampling for R&D material characterization",
+      "Quality control of incoming raw materials and production intermediates",
+    ],
+    carouselImages: [],
+    seoTitle: "Automated Electrode Powder Sampling System | IEST LEPS Series",
+    seoDescription:
+      "IEST LEPS Series: automated electrode powder sampling for consistent, reproducible material characterization in battery R&D and production QC.",
+  },
+
+  "spec-series": {
+    name: "Single Particle Electrochemical Performance Testing System",
+    model: "SPEC Series",
+    category: "Raw Materials",
+    description:
+      "The IEST Single Particle Electrochemical Performance Testing System (SPEC Series) enables electrochemical characterization at the individual particle level, isolating intrinsic active material performance from electrode-fabrication variables such as binder, carbon additive, and porosity. It provides fundamental insights into capacity, rate capability, and degradation mechanisms to guide next-generation battery material development.",
+    features: [
+      "Single-particle electrochemical measurement for material-level performance isolation",
+      "Eliminates electrode fabrication variables (binder, carbon black, porosity) from data",
+      "High-sensitivity current measurement for accurate single-particle cycling",
+      "Supports a range of particle sizes and active material chemistries",
+      "Rate capability, cycle life, and impedance analysis at single-particle scale",
+      "Compatible with glove box integration for air-sensitive materials",
+    ],
+    applications: [
+      "Fundamental electrochemical characterization of cathode and anode active materials",
+      "Particle-level capacity and rate capability evaluation for material development",
+      "Understanding degradation and aging mechanisms at the single-particle level",
+      "Screening new active material chemistries without full electrode fabrication",
+      "Academic and industrial battery material research",
+    ],
+    carouselImages: [],
+    seoTitle: "Single Particle Electrochemical Testing System | IEST SPEC Series",
+    seoDescription:
+      "IEST SPEC Series: single particle electrochemical testing to isolate material-level performance from electrode fabrication variables. Ideal for fundamental battery material R&D.",
+  },
 };
