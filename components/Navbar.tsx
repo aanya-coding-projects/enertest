@@ -1,43 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X, Search } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { categories } from "@/data/products";
-import { IEST_PRODUCT_DATA } from "@/data/iestProducts";
-
-function useProductSearch() {
-  const allProducts = useMemo(() =>
-    categories
-      .filter((cat) => cat.id !== "engineering-services")
-      .flatMap((cat) =>
-        cat.subcategories.flatMap((sub) =>
-          sub.products
-            .filter((p) => !p.comingSoon)
-            .map((p) => ({
-              slug: p.slug,
-              name: p.name,
-              image: p.image,
-              categoryTitle: cat.title,
-              model: IEST_PRODUCT_DATA[p.slug]?.model ?? "",
-            }))
-        )
-      ), []);
-
-  const search = (q: string) => {
-    const query = q.trim().toLowerCase();
-    if (!query) return [];
-    return allProducts
-      .filter((p) =>
-        p.name.toLowerCase().includes(query) ||
-        p.model.toLowerCase().includes(query)
-      )
-      .slice(0, 8);
-  };
-
-  return search;
-}
+import type { SearchResult } from "@/sanity/lib/types";
 
 export default function Navbar() {
   const router = useRouter();
@@ -47,11 +14,10 @@ export default function Navbar() {
   const [mounted, setMounted] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const lastScrollY = useRef(0);
   const searchInputRef = useRef<HTMLInputElement>(null);
-  const search = useProductSearch();
-
-  const searchResults = useMemo(() => search(searchQuery), [searchQuery]);
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -77,6 +43,7 @@ export default function Navbar() {
       document.body.style.overflow = "hidden";
     } else {
       setSearchQuery("");
+      setSearchResults([]);
       document.body.style.overflow = "";
     }
     return () => { document.body.style.overflow = ""; };
@@ -89,6 +56,25 @@ export default function Navbar() {
     document.addEventListener("keydown", handler);
     return () => document.removeEventListener("keydown", handler);
   }, []);
+
+  // Debounced search against the API route
+  useEffect(() => {
+    const q = searchQuery.trim();
+    if (!q) { setSearchResults([]); return; }
+
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    debounceRef.current = setTimeout(async () => {
+      try {
+        const res = await fetch(`/api/search?q=${encodeURIComponent(q)}`);
+        const data = await res.json();
+        setSearchResults(data);
+      } catch {
+        setSearchResults([]);
+      }
+    }, 150);
+
+    return () => { if (debounceRef.current) clearTimeout(debounceRef.current); };
+  }, [searchQuery]);
 
   if (!mounted) return null;
 
@@ -204,7 +190,7 @@ export default function Navbar() {
                       <div className="search-overlay-result-text">
                         <p className="search-overlay-result-name">{p.name}</p>
                         <p className="search-overlay-result-meta">
-                          {p.categoryTitle}{p.model ? ` · ${p.model}` : ""}
+                          {p.iestCategory ?? "EnerTest"}{p.model ? ` · ${p.model}` : ""}
                         </p>
                       </div>
                     </button>
