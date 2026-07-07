@@ -165,4 +165,91 @@ export const customerRefs: CustomerRef[] = [
       "Ongoing engineering and application support",
     ],
   },
+  {
+    slug: "farasis-energy",
+    customer: "Farasis Energy",
+    location: "", // TODO: confirm city/state — source copy only mentions "North American operations"
+    logo: "/Images/logo3.png",
+    summary:
+      "EnerTest partnered with a global battery manufacturer to provide battery testing solutions, engineering support, replacement components, and ongoing technical services as the customer expanded its North American operations.",
+    storyTitle: "Supporting Battery Manufacturing Growth Through Long-Term Engineering Partnership",
+    equipment: [
+      "Battery Cell Charge and Discharge Testing Solutions",
+      "Replacement Power Cables",
+    ],
+    services: "Engineering support, application assistance, and technical consulting",
+    story: [
+      "As battery manufacturers continue expanding production capacity in North America, reliable testing equipment and responsive engineering support become critical to maintaining operational efficiency. EnerTest partnered with a leading global battery manufacturer to provide ongoing technical expertise and testing solutions throughout multiple phases of their expansion.",
+      "The collaboration included engineering support services, battery cell charge and discharge testing solutions, replacement power cables, and customized technical assistance to keep testing systems operating at peak performance. Working closely with the customer's engineering team, EnerTest responded to evolving project requirements while supporting both existing operations and future manufacturing initiatives.",
+      "Beyond equipment delivery, EnerTest established a long-term service relationship by providing annual engineering support, application assistance, and technical consulting. This collaborative approach ensured the customer had dependable support throughout the lifecycle of their battery testing infrastructure.",
+    ],
+    highlights: [
+      "Battery cell charge and discharge testing solutions",
+      "Engineering support and technical consulting",
+      "Replacement testing components and accessories",
+      "Long-term service partnership",
+      "Application support for evolving manufacturing requirements",
+      "Support for North American battery manufacturing expansion",
+    ],
+  },
+  {
+    slug: "henry-ford-college",
+    customer: "Henry Ford College",
+    location: "Dearborn, Michigan",
+    logo: "/Images/logo9.png",
+    summary:
+      "EnerTest partnered with Henry Ford College to design, equip, and commission a new battery testing laboratory, providing engineering expertise, equipment integration, and technical support from planning through deployment.",
+    storyTitle: "Building the Next Generation of Battery Testing Education",
+    equipment: [
+      "Battery Cyclers",
+      "Environmental Testing Equipment",
+      "Chillers and Supporting Laboratory Systems",
+    ],
+    services: "Laboratory design, equipment procurement, commissioning, and application support",
+    story: [
+      "As demand for skilled battery engineers continues to grow, educational institutions require modern laboratories that provide students with hands-on experience using industry-standard equipment. Henry Ford College partnered with EnerTest to develop a comprehensive battery testing laboratory that would support both workforce development and advanced technical education.",
+      "Working alongside the college, design consultants, and project stakeholders, EnerTest provided engineering guidance throughout the planning and implementation process. From laboratory layout and infrastructure planning to equipment selection, placement, and pre-installation coordination, our team helped ensure every aspect of the facility was designed for safe, efficient, and scalable battery testing.",
+      "EnerTest supplied and coordinated the installation of battery cyclers, environmental testing equipment, chillers, and supporting laboratory systems, while managing equipment procurement and vendor coordination throughout the project. Following equipment delivery, our engineers provided commissioning, application support, and technical guidance to help prepare the laboratory for instructional and research activities.",
+      "The completed facility provides Henry Ford College with a modern battery testing laboratory capable of supporting education, research, and workforce training for the rapidly growing electric vehicle and energy storage industries.",
+    ],
+    highlights: [
+      "Complete battery testing laboratory design and implementation",
+      "Laboratory infrastructure planning and equipment integration",
+      "Battery cyclers and environmental testing systems",
+      "Equipment procurement and vendor coordination",
+      "Commissioning, application engineering, and technical support",
+      "Modern laboratory supporting battery education and workforce development",
+    ],
+  },
+  {
+    slug: "ford-motor-company",
+    customer: "Ford Motor Company",
+    location: "", // TODO: confirm city/state — not specified in source copy
+    logo: "/Images/logo4.png",
+    summary:
+      "EnerTest has partnered with Ford on a range of battery manufacturing, laboratory, and validation initiatives, providing QA equipment, engineering support, HiL technologies, calibration services, and specialized production solutions across multiple programs.",
+    storyTitle: "Supporting Battery Innovation Across Manufacturing, Testing, and Validation",
+    equipment: [
+      "Battery Manufacturing Quality Assurance Laboratory Equipment",
+      "Hardware-in-the-Loop (HiL) and Battery Cell Simulation Technologies",
+      "Production Tooling and Machine Vision Solutions",
+    ],
+    services: "Engineering design, equipment procurement, calibration, and long-term technical support",
+    story: [
+      "As electric vehicle programs continue to expand, automotive manufacturers require engineering partners capable of supporting every stage of battery development—from manufacturing and quality assurance to testing, validation, and production support.",
+      "EnerTest has collaborated with Ford across multiple battery initiatives, providing engineering expertise and technical solutions for battery manufacturing facilities, quality assurance laboratories, and advanced validation programs. Working alongside Ford's engineering teams and project stakeholders, EnerTest has supported projects spanning equipment procurement, laboratory planning, specialized manufacturing tooling, calibration services, and battery testing technologies.",
+      "Among these initiatives, EnerTest has contributed to the planning and procurement efforts for the second phase of Ford's battery manufacturing quality assurance laboratory, supporting discussions around laboratory equipment, project coordination, and long-term expansion. Additional collaborations have included battery Hardware-in-the-Loop (HiL) development, battery cell simulation technologies, equipment calibration services, production tooling, machine vision solutions, and specialized replacement components to support ongoing manufacturing operations.",
+      "By combining equipment integration with responsive engineering support, EnerTest continues to help customers adapt to evolving battery technologies while providing dependable technical expertise throughout the project lifecycle.",
+    ],
+    highlights: [
+      "Battery manufacturing quality assurance laboratory support",
+      "Hardware-in-the-Loop (HiL) and battery simulation technologies",
+      "Engineering design and technical consulting",
+      "Equipment procurement and system integration",
+      "Calibration and lifecycle support services",
+      "Manufacturing tooling and production support",
+      "Quality assurance equipment and laboratory solutions",
+      "Long-term engineering partnership across multiple battery programs",
+    ],
+  },
 ];
