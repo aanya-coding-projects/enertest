@@ -109,40 +109,149 @@ export const PRODUCT_DATA: Record<string, ProductEntry> = {
   },
 
   "powder-resistivity-compaction-density-system": {
-    carouselImages: ["/Images/powerres.png"],
-    applications: [
-      "Lithium (sodium) cathode and anode electrode powders (LCO/NCM/LFP/Graphite, etc.)",
-      "Conductive agents",
-      "Solid electrolyte powders",
-      "Other micron-sized powder materials, etc.",
+    layout: "advanced",
+    carouselImages: [
+      "https://iestbattery.com/wp-content/uploads/2024/04/IEST-Powder-Resistivity-Compaction-Density-Measurement-System-PRCD3100.webp",
+      "https://iestbattery.com/wp-content/uploads/2024/04/PRCD3100.webp",
+    ],
+    intro: [
+      {
+        heading: "Introduction",
+        body: "Accurate evaluation of electronic resistance in battery materials and electrodes is critical for predicting final cell internal resistance. The PRCD3100 enables direct powder resistivity measurement and compaction density testing under controlled pressure — at conditions that reflect actual electrode manufacturing, not just tapped density. This closes the gap between material characterization and production-scale performance.",
+        image: "https://iestbattery.com/wp-content/uploads/2024/04/IEST-Powder-Resistivity-Compaction-Density-Measurement-System-details-15.webp",
+      },
+      {
+        heading: "Testing Capabilities",
+        list: [
+          "Powder resistivity under variable compaction pressure (up to 350 MPa)",
+          "Compaction density at production-relevant pressures",
+          "Two-probe and four-probe resistance measurement modes, freely switchable",
+          "Real-time parameter curves: pressure, thickness, resistance, resistivity, conductivity",
+          "Batch-to-batch stability monitoring for incoming material QC",
+        ],
+        image: "https://iestbattery.com/wp-content/uploads/2024/04/IEST-Powder-Resistivity-Compaction-Density-Measurement-System-details-16.webp",
+        reverse: true,
+      },
+      {
+        heading: "Why Compaction Density Matters",
+        body: "When testing powder conductivity, the compaction density should reflect the actual electrode compaction — not tapped density. Using LCO as an example: below 3.87 g/cm³ (pressure <75 MPa), a modified powder sample is less conductive than unmodified. Above 3.87 g/cm³, it outperforms — and the gap grows with pressure. Testing at the wrong pressure produces the wrong conclusion.",
+        image: "https://iestbattery.com/wp-content/uploads/2024/04/Compaction-Densitygcm%C2%B3.webp",
+      },
+      {
+        heading: "System Design",
+        list: [
+          "Servo-motor driven pressure system, up to 350 MPa",
+          "High-precision displacement sensor for real-time thickness measurement",
+          "Purpose-built clamp simplifies powder loading and cleaning",
+          "One-stop data collection: pressure, resistance, thickness, temperature, humidity",
+          "Integrated control and measurement — no external instruments required",
+          "Automatic report generation with resistivity and compaction density values",
+        ],
+        image: "https://iestbattery.com/wp-content/uploads/2024/04/PRCD3100.webp",
+        reverse: true,
+      },
     ],
     features: [
-      "Ultra-wide pressurization range (maximum 350MPa) and ultra-wide resistance measurement range (1200MΩ)",
-      "When measuring resistance, two-probe and four-probe dual principles can be switched freely",
-      "Fully automatic test software, free parameter setting, one-click start",
-      "Real-time monitoring and output of pressure, ambient temperature, ambient humidity, thickness, resistance, resistivity, conductivity, compaction density and other parameter curves, with automatic saving of test data",
-      "Multiple powder test modes: pressurization, single-point pressure relief, steady-state pressure relief",
-      "Equipped with standard thickness blocks and resistance blocks calibrated by a third-party metrology institute",
+      "Ultra-wide pressurization range (maximum 350 MPa) and resistance range (1200 MΩ)",
+      "Two-probe and four-probe dual measurement modes, freely switchable",
+      "Fully automatic test software with one-click start and free parameter setting",
+      "Real-time monitoring of pressure, temperature, humidity, thickness, resistance, resistivity, conductivity, and compaction density",
+      "Multiple test modes: pressurization, single-point pressure relief, steady-state pressure relief",
+      "Standard thickness blocks and resistance blocks calibrated by a third-party metrology institute",
     ],
-    supplements: [],
-    supplementLayout: "stacked",
+    applicationCards: [
+      {
+        title: "High-Nickel Cathode Materials",
+        description: "Quantitative characterization of conductive network improvement via surface coating on NMC/NCA powders, demonstrating how modification promotes electron transport.",
+        image: "https://iestbattery.com/wp-content/uploads/2024/04/IEST-Powder-Resistivity-Compaction-Density-Measurement-System-details-19.webp",
+      },
+      {
+        title: "Lithium-rich Materials",
+        description: "Analysis of modification approaches for lithium-rich cathode materials, showing how surface structure regulation reduces powder resistivity.",
+        image: "https://iestbattery.com/wp-content/uploads/2024/04/IEST-Powder-Resistivity-Compaction-Density-Measurement-System-details-20.webp",
+      },
+      {
+        title: "Silicon-based Anode Materials",
+        description: "Comparison of Si/graphite composites under varying Si content (3%, 6%, 10%) and sintering temperatures to optimize anode formulation resistivity.",
+        image: "https://iestbattery.com/wp-content/uploads/2024/04/IEST-Powder-Resistivity-Compaction-Density-Measurement-System-details-28.webp",
+      },
+      {
+        title: "Anode Materials & Conductive Agents",
+        description: "Statistically significant differentiation of powder resistivity and compaction density across anode active materials and conductive additives.",
+        image: "https://iestbattery.com/wp-content/uploads/2024/04/IEST-Powder-Resistivity-Compaction-Density-Measurement-System-details-29.webp",
+      },
+      {
+        title: "Elastic Modulus: LCO",
+        description: "Plastic and elastic deformation analysis during LCO compaction under steady-state mode, revealing how particle size influences rebound behavior.",
+        image: "https://iestbattery.com/wp-content/uploads/2024/04/IEST-Powder-Resistivity-Compaction-Density-Measurement-System-details-22.webp",
+      },
+      {
+        title: "Carbon Material Compression",
+        description: "Comparison of graphite vs. hard carbon compressive resilience, attributed to differences in their microstructural architecture.",
+        image: "https://iestbattery.com/wp-content/uploads/2024/04/IEST-Powder-Resistivity-Compaction-Density-Measurement-System-details-23.webp",
+      },
+    ],
+    videoEmbedUrl: "https://www.youtube.com/embed/93ccxnX7MpU",
+    specsImage: "https://iestbattery.com/wp-content/uploads/2024/04/IEST-Powder-Resistivity-Compaction-Density-Measurement-System-details-26-e1745223957228.webp",
+    downloadUrl: "https://iestbattery.com/wp-content/uploads/2026/04/IEST-PRCD-Series.pdf",
   },
 
   "in-situ-anode-swelling-screening-system": {
-    carouselImages: ["/Images/in-situ.png"],
-    applications: [
-      "Pouch cell",
-      "Laminates and coin cell",
-      "In-situ swelling thickness testing",
+    layout: "advanced",
+    carouselImages: [
+      "https://iestbattery.com/wp-content/uploads/2024/04/IEST-Silicon-Based-Anode-Swelling-In-Situ-Screening-System.webp",
+    ],
+    intro: [
+      {
+        heading: "Introduction",
+        body: "Silicon anodes offer 4200 mAh/g theoretical capacity but undergo >300% volume expansion during lithiation, continuously breaking the SEI film and causing rapid capacity fade. Silicon-carbon composites are the most industrially promising solution — but quantifying their volume expansion during charge/discharge is essential for material screening, composite design, and cell qualification.",
+        image: "https://iestbattery.com/wp-content/uploads/2024/04/%E8%B5%84%E6%BA%90-3_12.webp",
+      },
+      {
+        heading: "Measurement Principle",
+        body: "The RSS1400 applies controlled pressure to four cell channels simultaneously while measuring thickness change in real time via high-precision displacement sensors. Expansion data is automatically synchronized with the charge/discharge curve, enabling direct correlation between electrochemical events and mechanical swelling behavior.",
+        image: "https://iestbattery.com/wp-content/uploads/2024/04/%E8%B5%84%E6%BA%90-5_13-e1721370554825.webp",
+        reverse: true,
+      },
+      {
+        heading: "System Design",
+        list: [
+          "Four-channel simultaneous testing with independent pressure control per channel",
+          "Servo-motor pressure control (RSS1400) up to 100 kg with 0.1 kg / ±0.3% F.S. accuracy",
+          "0.01 μm displacement resolution for sub-micron thickness detection",
+          "Compatible with model coin cells, multi-layer laminates, and pouch cells up to 60×90×4 mm",
+          "Visual operation interface with one-click data export",
+          "Synchronized recording of expansion thickness and charge/discharge data",
+        ],
+        image: "https://iestbattery.com/wp-content/uploads/2024/04/%E8%B5%84%E6%BA%90-6_14.webp",
+      },
     ],
     features: [
-      "In-situ characterization of the expansion thickness change of silicon-based battery cells under different pressures",
-      "Four-channel simultaneous testing of multiple battery cells",
-      "Adapts to in-situ testing of various battery cell structures: model buckle battery, stacked battery, soft pack battery, etc.",
-      "Visual operation interface with one-click export of data reports",
+      "In-situ characterization of silicon-based cell expansion under variable controlled pressure",
+      "Four-channel simultaneous testing for high-throughput parallel screening",
+      "Compatible with model coin cells, multi-layer laminates, and pouch cells",
+      "Servo-motor pressure control up to 100 kg with 0.1 kg resolution",
+      "0.01 μm thickness detection resolution (RSS1400 model)",
+      "Visual operation interface with one-click data export",
     ],
-    supplements: [],
-    supplementLayout: "stacked",
+    applicationCards: [
+      {
+        title: "Model Coin Cell Swelling",
+        description: "In-situ swelling test of NCM811/SiC full coin cells (~3 mAh) over 3 charge/discharge cycles. Expansion thickness COV of only 0.6%, confirming system repeatability for material screening.",
+        image: "https://iestbattery.com/wp-content/uploads/2024/04/%E8%B5%84%E6%BA%90-7_15.webp",
+      },
+      {
+        title: "Multi-layer Laminate Swelling",
+        description: "Testing of NCM811/SiC stacked cells (~400 mAh) at constant 0.1 MPa. Maximum expansion ratio ~12.5%; COV between three parallel samples = 1.4%.",
+        image: "https://iestbattery.com/wp-content/uploads/2024/04/%E8%B5%84%E6%BA%90-8_16.webp",
+      },
+      {
+        title: "Pouch Cell Swelling",
+        description: "In-situ testing of wound pouch cells (~400 mAh) at constant 0.1 MPa. Maximum expansion ratio when fully charged ~4.3%; COV = 1.9% across three parallel samples.",
+        image: "https://iestbattery.com/wp-content/uploads/2024/04/%E8%B5%84%E6%BA%90-9_17.webp",
+      },
+    ],
+    downloadUrl: "https://iestbattery.com/wp-content/uploads/2024/05/IEST-Silicon-Based-Anode-Swelling-In-Situ-Screening-System.pdf",
   },
 
   "cell-expansion-test-kit": {

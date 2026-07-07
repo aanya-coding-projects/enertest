@@ -180,10 +180,12 @@ export const categories: Category[] = [
           {
             slug: "leps-series",
             name: "Automated Electrode Powder Sampling System",
+            image: "https://iestbattery.com/wp-content/uploads/2026/05/IEST-Automated-Electrode-Powder-Sampling-System-1.webp",
           },
           {
             slug: "spec-series",
             name: "Single Particle Electrochemical Performance Testing System",
+            image: "https://iestbattery.com/wp-content/uploads/2026/06/IEST-Single-Particle-Electrochemical-Performance-Testing-SystemSPEC-1.webp",
           },
         ],
       },
@@ -213,6 +215,7 @@ export const categories: Category[] = [
           {
             slug: "bef1000",
             name: "Battery Electrode Flexibility Testing System",
+            image: "https://iestbattery.com/wp-content/uploads/2025/07/IEST-Battery-Electrode-Flexibility-Testing-System-2.webp",
           },
         ],
       },

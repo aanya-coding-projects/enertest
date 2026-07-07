@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
@@ -27,7 +27,28 @@ const IEST_FEATURED = [
 
 export default function Products() {
   const [openCategory, setOpenCategory] = useState<string | null>(null);
-    useEffect(() => {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const allSearchableProducts = useMemo(() =>
+    categories
+      .filter((cat) => cat.id !== "engineering-services")
+      .flatMap((cat) =>
+        cat.subcategories.flatMap((sub) =>
+          sub.products
+            .filter((p) => !p.comingSoon)
+            .map((p) => ({ ...p, categoryTitle: cat.title, categoryId: cat.id }))
+        )
+      ), []);
+
+  const searchResults = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return [];
+    return allSearchableProducts.filter((p) =>
+      p.name.toLowerCase().includes(q)
+    );
+  }, [searchQuery, allSearchableProducts]);
+
+  useEffect(() => {
     console.log("URL:", window.location.href);
     console.log("Hash:", window.location.hash);
 
@@ -75,7 +96,63 @@ export default function Products() {
           Factory-scale equipment engineered for cell, module, and pack production.
           All solutions are available via direct consultation with our team.
         </motion.p>
+        <motion.div
+          className="products-search-wrap"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <svg className="products-search-icon" width="16" height="16" viewBox="0 0 20 20" fill="none">
+            <circle cx="9" cy="9" r="6.5" stroke="currentColor" strokeWidth="1.6"/>
+            <path d="M14 14L18 18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
+          </svg>
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search products…"
+            className="products-search-input"
+          />
+          {searchQuery && (
+            <button className="products-search-clear" onClick={() => setSearchQuery("")} aria-label="Clear search">
+              ×
+            </button>
+          )}
+        </motion.div>
       </section>
+
+      {searchQuery.trim() ? (
+        <section className="products-categories">
+          <div className="products-container">
+            <p className="search-results-count">
+              {searchResults.length} result{searchResults.length !== 1 ? "s" : ""} for &ldquo;{searchQuery}&rdquo;
+            </p>
+            {searchResults.length > 0 ? (
+              <div className="product-grid">
+                {searchResults.map((product) => (
+                  <Link key={product.slug} href={`/products/${product.slug}`} className="product-card">
+                    <div className="product-card-img-wrap">
+                      {product.image ? (
+                        <img src={product.image} alt={product.name} className="product-card-img" />
+                      ) : (
+                        <div className="product-img-placeholder" />
+                      )}
+                    </div>
+                    <div className="product-card-body">
+                      <p className="search-result-category">{product.categoryTitle}</p>
+                      <p className="product-card-name">{product.name}</p>
+                      <span className="product-more-link">More Info <span className="arrow">→</span></span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            ) : (
+              <p className="search-no-results">No products matched &ldquo;{searchQuery}&rdquo;. Try a different term.</p>
+            )}
+          </div>
+        </section>
+      ) : (
+        <>
       <FeaturedProducts />
 
       {/* Category Accordion */}
@@ -265,6 +342,8 @@ export default function Products() {
           })}
         </div>
       </section>
+        </>
+      )}
     </main>
   );
 }

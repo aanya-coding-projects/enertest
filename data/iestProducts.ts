@@ -617,7 +617,9 @@ export const IEST_PRODUCT_DATA: Record<string, IESTProduct> = {
       "Roll-to-roll process and calendering effect optimization",
       "Quality control of electrode flexibility for production consistency",
     ],
-    carouselImages: [],
+    carouselImages: [
+      "https://iestbattery.com/wp-content/uploads/2025/07/IEST-Battery-Electrode-Flexibility-Testing-System-2.webp",
+    ],
     seoTitle: "Battery Electrode Flexibility Testing System | IEST BEF1000",
     seoDescription:
       "IEST BEF1000: quantitative flexibility and crack resistance testing for battery electrodes. Supports flexible battery R&D, high-loading electrode development, and QC.",
@@ -643,7 +645,9 @@ export const IEST_PRODUCT_DATA: Record<string, IESTProduct> = {
       "Slurry and dry powder sampling for R&D material characterization",
       "Quality control of incoming raw materials and production intermediates",
     ],
-    carouselImages: [],
+    carouselImages: [
+      "https://iestbattery.com/wp-content/uploads/2026/05/IEST-Automated-Electrode-Powder-Sampling-System-1.webp",
+    ],
     seoTitle: "Automated Electrode Powder Sampling System | IEST LEPS Series",
     seoDescription:
       "IEST LEPS Series: automated electrode powder sampling for consistent, reproducible material characterization in battery R&D and production QC.",
@@ -670,7 +674,9 @@ export const IEST_PRODUCT_DATA: Record<string, IESTProduct> = {
       "Screening new active material chemistries without full electrode fabrication",
       "Academic and industrial battery material research",
     ],
-    carouselImages: [],
+    carouselImages: [
+      "https://iestbattery.com/wp-content/uploads/2026/06/IEST-Single-Particle-Electrochemical-Performance-Testing-SystemSPEC-1.webp",
+    ],
     seoTitle: "Single Particle Electrochemical Testing System | IEST SPEC Series",
     seoDescription:
       "IEST SPEC Series: single particle electrochemical testing to isolate material-level performance from electrode fabrication variables. Ideal for fundamental battery material R&D.",
