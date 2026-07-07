@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { categories } from "@/data/products";
+import { IEST_PRODUCT_DATA } from "@/data/iestProducts";
 import FeaturedProducts from "@/components/FeaturedProducts";
 
 const IEST_FEATURED = [
@@ -36,7 +37,12 @@ export default function Products() {
         cat.subcategories.flatMap((sub) =>
           sub.products
             .filter((p) => !p.comingSoon)
-            .map((p) => ({ ...p, categoryTitle: cat.title, categoryId: cat.id }))
+            .map((p) => ({
+              ...p,
+              categoryTitle: cat.title,
+              categoryId: cat.id,
+              model: IEST_PRODUCT_DATA[p.slug]?.model ?? "",
+            }))
         )
       ), []);
 
@@ -44,7 +50,8 @@ export default function Products() {
     const q = searchQuery.trim().toLowerCase();
     if (!q) return [];
     return allSearchableProducts.filter((p) =>
-      p.name.toLowerCase().includes(q)
+      p.name.toLowerCase().includes(q) ||
+      p.model.toLowerCase().includes(q)
     );
   }, [searchQuery, allSearchableProducts]);
 
