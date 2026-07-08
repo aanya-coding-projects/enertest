@@ -1,15 +1,5 @@
-import { product } from "./product";
-import { category } from "./category";
-import { introBlock } from "./objects/introBlock";
-import { applicationCard } from "./objects/applicationCard";
-import { supplement } from "./objects/supplement";
+import { type SchemaTypeDefinition } from 'sanity'
 
-export const schemaTypes = [
-  // Documents
-  product,
-  category,
-  // Objects
-  introBlock,
-  applicationCard,
-  supplement,
-];
+export const schema: { types: SchemaTypeDefinition[] } = {
+  types: [],
+}
