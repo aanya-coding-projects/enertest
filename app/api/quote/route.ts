@@ -98,8 +98,11 @@ export async function POST(req: NextRequest) {
     ]);
 
     return Response.json({ success: true });
-  } catch (err) {
+  } catch (err: any) {
     console.error("Resend error:", err);
-    return Response.json({ error: "Failed to send emails" }, { status: 500 });
+    return Response.json(
+      { error: "Failed to send emails", detail: err?.message ?? String(err) },
+      { status: 500 }
+    );
   }
 }
