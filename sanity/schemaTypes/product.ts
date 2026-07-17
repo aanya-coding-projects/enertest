@@ -28,10 +28,11 @@ export const product = defineType({
     }),
     defineField({
       name: "image",
-      type: "string",
-      title: "Card Image URL",
-      description: "URL shown on the products listing page (can be external or /Images/...)",
+      type: "image",
+      title: "Card Image",
+      description: "Image shown on the products listing page",
       group: "basic",
+      options: { hotspot: true },
     }),
     defineField({
       name: "comingSoon",
@@ -71,7 +72,7 @@ export const product = defineType({
       title: "Carousel Images",
       description: "Images shown in the product image carousel",
       group: "detail",
-      of: [{ type: "string" }],
+      of: [{ type: "image", options: { hotspot: true } }],
     }),
     defineField({
       name: "features",
@@ -115,7 +116,7 @@ export const product = defineType({
           type: "object",
           fields: [
             { name: "label", type: "string", title: "Label" },
-            { name: "src", type: "string", title: "Image URL / Path" },
+            { name: "src", type: "image", title: "Image", options: { hotspot: true } },
           ],
         },
       ],
@@ -149,9 +150,10 @@ export const product = defineType({
     }),
     defineField({
       name: "specsImage",
-      type: "string",
-      title: "Specs Table Image URL",
+      type: "image",
+      title: "Specs Table Image",
       group: "detail",
+      options: { hotspot: true },
       hidden: ({ document }) => document?.layout !== "advanced",
     }),
     defineField({
@@ -199,8 +201,8 @@ export const product = defineType({
 
   preview: {
     select: { title: "name", subtitle: "slug.current", media: "image" },
-    prepare({ title, subtitle }) {
-      return { title, subtitle: `/${subtitle}` };
+    prepare({ title, subtitle, media }) {
+      return { title, subtitle: `/${subtitle}`, media };
     },
   },
 });

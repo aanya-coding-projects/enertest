@@ -12,7 +12,7 @@ export const CATEGORIES_QUERY = groq`
         name,
         description,
         comingSoon,
-        image,
+        "image": image.asset->url,
         layout,
       }
     }
@@ -24,19 +24,36 @@ export const PRODUCT_QUERY = groq`
     "slug": slug.current,
     name,
     description,
-    image,
+    "image": image.asset->url,
     comingSoon,
     layout,
-    carouselImages,
+    "carouselImages": carouselImages[].asset->url,
     features,
     applications,
-    supplements,
+    supplements[] {
+      label,
+      "src": src.asset->url,
+      description,
+    },
     supplementLayout,
-    gallery,
-    intro,
-    applicationCards,
+    gallery[] {
+      label,
+      "src": src.asset->url,
+    },
+    intro[] {
+      heading,
+      body,
+      list,
+      "image": image.asset->url,
+      reverse,
+    },
+    applicationCards[] {
+      title,
+      description,
+      "image": image.asset->url,
+    },
     videoEmbedUrl,
-    specsImage,
+    "specsImage": specsImage.asset->url,
     downloadUrl,
     model,
     iestCategory,
@@ -62,7 +79,7 @@ export const SEARCHABLE_PRODUCTS_QUERY = groq`
   *[_type == "product" && comingSoon != true && count(features) > 0] {
     "slug": slug.current,
     name,
-    image,
+    "image": image.asset->url,
     model,
     iestCategory,
   }
@@ -73,7 +90,7 @@ export const FEATURED_PRODUCTS_QUERY = groq`
   *[_type == "product" && slug.current in $slugs] {
     "slug": slug.current,
     name,
-    image,
+    "image": image.asset->url,
     description,
     comingSoon,
   }

@@ -6,7 +6,7 @@ export const supplement = defineType({
   type: "object",
   fields: [
     defineField({ name: "label", type: "string", title: "Label", validation: (R) => R.required() }),
-    defineField({ name: "src", type: "string", title: "Image URL / Path", validation: (R) => R.required() }),
+    defineField({ name: "src", type: "image", title: "Image", options: { hotspot: true }, validation: (R) => R.required() }),
     defineField({ name: "description", type: "text", title: "Caption", rows: 2 }),
   ],
   preview: {

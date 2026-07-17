@@ -7,7 +7,7 @@ export const applicationCard = defineType({
   fields: [
     defineField({ name: "title", type: "string", title: "Title", validation: (R) => R.required() }),
     defineField({ name: "description", type: "text", title: "Description", rows: 3, validation: (R) => R.required() }),
-    defineField({ name: "image", type: "string", title: "Image URL", validation: (R) => R.required() }),
+    defineField({ name: "image", type: "image", title: "Image", options: { hotspot: true }, validation: (R) => R.required() }),
   ],
   preview: {
     select: { title: "title" },

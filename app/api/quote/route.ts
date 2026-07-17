@@ -3,20 +3,19 @@ import { NextRequest } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
-  const resend = new Resend(process.env.RESEND_API_KEY);
-  const body = await req.json();
-  const { name, company, email, phone, products, chemistry, cellFormat, channelCount, timeline, budget, projectDetails } = body;
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const body = await req.json();
+    const { name, company, email, phone, products, chemistry, cellFormat, channelCount, timeline, budget, projectDetails } = body;
 
-  const salesEmail = process.env.SALES_EMAIL;
-  const fromEmail = process.env.FROM_EMAIL ?? "onboarding@resend.dev";
+    const salesEmail = process.env.SALES_EMAIL;
+    const fromEmail = process.env.FROM_EMAIL ?? "onboarding@resend.dev";
 
-  if (!salesEmail) {
-    return Response.json({ error: "SALES_EMAIL not configured" }, { status: 500 });
-  }
+    if (!salesEmail) {
+      return Response.json({ error: "SALES_EMAIL not configured" }, { status: 500 });
+    }
 
-  const productList = products?.length ? products.join(", ") : "None selected";
+    const productList = products?.length ? products.join(", ") : "None selected";
 
-  try {
     await Promise.all([
       // Email to sales team
       resend.emails.send({
@@ -100,14 +99,10 @@ export async function POST(req: NextRequest) {
 
     return Response.json({ success: true });
   } catch (err: any) {
-    console.error("Resend error:", err);
+    console.error("Quote error:", err);
     return Response.json(
       { error: "Failed to send emails", detail: err?.message ?? String(err) },
       { status: 500 }
     );
-  }
-  } catch (err: any) {
-    console.error("Top-level error:", err);
-    return Response.json({ error: "Server error", detail: err?.message ?? String(err) }, { status: 500 });
   }
 }
