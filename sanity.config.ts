@@ -8,6 +8,7 @@ export default defineConfig({
   title: "EnerTest Solutions",
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ?? "1tsozi8b",
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET ?? "production",
+  basePath: "/studio",   // ← ADD THIS LINE
   plugins: [
     structureTool({
       structure: (S) =>

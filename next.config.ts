@@ -10,9 +10,10 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
-      // --- Core pages: 1:1 matches ---
-      { source: "/about", destination: "/about", permanent: true },
-      { source: "/contact", destination: "/contact", permanent: true },
+      // --- Core pages ---
+      // NOTE: /about and /contact are NOT listed here on purpose — they didn't move,
+      // so they need no redirect. A same-to-same redirect causes an infinite loop
+      // (ERR_TOO_MANY_REDIRECTS). Do not re-add them.
       { source: "/services", destination: "/products", permanent: true }, // update destination if you build a dedicated /services page
 
       // --- Category-level pages: no exact new-site page yet, sending to catalog ---
