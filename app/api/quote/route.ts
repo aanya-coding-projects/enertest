@@ -8,11 +8,7 @@ export async function POST(req: NextRequest) {
     const { name, company, email, phone, products, chemistry, cellFormat, channelCount, timeline, budget, projectDetails } = body;
 
     const fromEmail = process.env.FROM_EMAIL ?? "onboarding@resend.dev";
-    const salesEmails = process.env.SALES_EMAILS
-      ? process.env.SALES_EMAILS.split(",").map((e) => e.trim()).filter(Boolean)
-      : process.env.SALES_EMAIL
-        ? [process.env.SALES_EMAIL]
-        : [];
+    const salesEmails = (process.env.SALES_EMAIL ?? "").split(",").map((e) => e.trim()).filter(Boolean);
 
     if (salesEmails.length === 0) {
       return Response.json({ error: "No sales emails configured" }, { status: 500 });
