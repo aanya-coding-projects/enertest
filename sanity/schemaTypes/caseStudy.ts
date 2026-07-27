@@ -7,66 +7,60 @@ export const caseStudy = defineType({
   fields: [
     defineField({
       name: "customer",
-      title: "Customer Name",
       type: "string",
+      title: "Customer Name",
       validation: (R) => R.required(),
     }),
     defineField({
       name: "slug",
-      title: "URL Slug",
       type: "slug",
+      title: "Slug (URL)",
       options: { source: "customer" },
       validation: (R) => R.required(),
     }),
-    defineField({
-      name: "location",
-      title: "Location",
-      type: "string",
-      description: 'e.g. "Auburn Hills, Michigan"',
-    }),
+    defineField({ name: "location", type: "string", title: "Location (City, State)" }),
     defineField({
       name: "logo",
-      title: "Customer Logo",
       type: "image",
+      title: "Customer Logo",
+      description: "Drag & drop a logo, or paste a URL below",
       options: { hotspot: true },
+      fields: [
+        defineField({ name: "externalUrl", type: "url", title: "Or paste an image URL" }),
+      ],
     }),
-    defineField({
-      name: "summary",
-      title: "Card Summary (teaser text)",
-      type: "text",
-      rows: 3,
-      description: "Shown on the case-study listing/preview card",
-    }),
-    defineField({
-      name: "storyTitle",
-      title: "Story Title",
-      type: "string",
-    }),
+    defineField({ name: "summary", type: "text", title: "Card Summary (shown in marquee)", rows: 3 }),
+    defineField({ name: "storyTitle", type: "string", title: "Story Title (shown on detail page)" }),
     defineField({
       name: "equipment",
-      title: "Equipment Delivered",
       type: "array",
+      title: "Delivered Equipment",
       of: [{ type: "string" }],
     }),
-    defineField({
-      name: "services",
-      title: "Services Provided",
-      type: "string",
-    }),
+    defineField({ name: "services", type: "text", title: "Services Provided", rows: 2 }),
     defineField({
       name: "story",
-      title: "Full Story (one paragraph per entry)",
       type: "array",
-      of: [{ type: "text", rows: 4 }],
+      title: "Story Paragraphs (one per item)",
+      of: [{ type: "text" }],
     }),
     defineField({
       name: "highlights",
-      title: "Highlights",
       type: "array",
+      title: "Project Highlights",
       of: [{ type: "string" }],
+    }),
+    defineField({
+      name: "order",
+      type: "number",
+      title: "Display Order",
+      description: "Lower numbers appear first in the marquee",
     }),
   ],
   preview: {
     select: { title: "customer", subtitle: "location", media: "logo" },
+    prepare({ title, subtitle, media }) {
+      return { title, subtitle, media };
+    },
   },
 });

@@ -15,6 +15,21 @@ export default defineConfig({
         S.list()
           .title("Content")
           .items([
+            // ── Page singletons ───────────────────────────────────────────────
+            S.listItem()
+              .title("Home Page")
+              .id("homePage")
+              .child(S.document().schemaType("homePage").documentId("homePage")),
+            S.listItem()
+              .title("About Page")
+              .id("aboutPage")
+              .child(S.document().schemaType("aboutPage").documentId("aboutPage")),
+            S.listItem()
+              .title("Contact Page")
+              .id("contactPage")
+              .child(S.document().schemaType("contactPage").documentId("contactPage")),
+            S.divider(),
+            // ── Products ──────────────────────────────────────────────────────
             S.listItem()
               .title("Products")
               .child(
@@ -22,12 +37,20 @@ export default defineConfig({
                   .title("All Products")
                   .defaultOrdering([{ field: "name", direction: "asc" }])
               ),
-            S.divider(),
             S.listItem()
               .title("Categories")
               .child(
                 S.documentTypeList("category")
                   .title("Categories")
+                  .defaultOrdering([{ field: "order", direction: "asc" }])
+              ),
+            S.divider(),
+            // ── Case Studies ──────────────────────────────────────────────────
+            S.listItem()
+              .title("Case Studies")
+              .child(
+                S.documentTypeList("caseStudy")
+                  .title("Case Studies")
                   .defaultOrdering([{ field: "order", direction: "asc" }])
               ),
           ]),

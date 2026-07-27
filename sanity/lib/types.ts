@@ -1,3 +1,58 @@
+export type SanityHomePage = {
+  heroTitle?: string | null;
+  heroSubtitle?: string | null;
+  valuePropTag?: string | null;
+  valuePropHeadline?: string | null;
+  valuePropSubtext?: string | null;
+  valuePropSteps?: { highlight: string; rest: string }[] | null;
+  capabilitiesTag?: string | null;
+  capabilitiesHeadline?: string | null;
+  capabilitiesSubheadline?: string | null;
+  solutions?: { _key: string; title: string; description: string; image?: string | null; isSpecial?: boolean }[] | null;
+};
+
+export type SanityAboutPage = {
+  heroTitle?: string | null;
+  heroSubtitle?: string | null;
+  heroVideoUrl?: string | null;
+  whoWeAreTitle?: string | null;
+  whoWeAreBody?: string[] | null;
+  stats?: { num: string; label: string }[] | null;
+  painPointsTitle?: string | null;
+  painPoints?: string[] | null;
+  valuePropTitle?: string | null;
+  valuePoints?: string[] | null;
+  strengthsTitle?: string | null;
+  strengths?: { title: string; items: string[] }[] | null;
+  processTitle?: string | null;
+  processSteps?: { num: string; title: string; desc: string }[] | null;
+  ctaTitle?: string | null;
+  ctaSub?: string | null;
+};
+
+export type SanityContactPage = {
+  heroTitle?: string | null;
+  heroSubtitle?: string | null;
+  addressLine1?: string | null;
+  addressLine2?: string | null;
+  email?: string | null;
+  phone?: string | null;
+  expectSteps?: { step: string; text: string }[] | null;
+};
+
+export type SanityCaseStudy = {
+  slug: string;
+  customer: string;
+  location?: string | null;
+  logo?: string | null;
+  summary?: string | null;
+  storyTitle?: string | null;
+  equipment?: string[] | null;
+  services?: string | null;
+  story?: string[] | null;
+  highlights?: string[] | null;
+};
+
 export type SanityProduct = {
   slug: string;
   name: string;
