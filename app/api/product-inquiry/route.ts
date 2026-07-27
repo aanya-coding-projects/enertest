@@ -6,11 +6,15 @@ export async function POST(req: NextRequest) {
   const body = await req.json();
   const { name, company, email, phone, message, productName } = body;
 
-  const salesEmail = process.env.SALES_EMAIL;
   const fromEmail = process.env.FROM_EMAIL ?? "onboarding@resend.dev";
+  const salesEmails = process.env.SALES_EMAILS
+    ? process.env.SALES_EMAILS.split(",").map((e) => e.trim()).filter(Boolean)
+    : process.env.SALES_EMAIL
+      ? [process.env.SALES_EMAIL]
+      : [];
 
-  if (!salesEmail) {
-    return Response.json({ error: "SALES_EMAIL not configured" }, { status: 500 });
+  if (salesEmails.length === 0) {
+    return Response.json({ error: "No sales emails configured" }, { status: 500 });
   }
 
   try {
@@ -18,7 +22,7 @@ export async function POST(req: NextRequest) {
       // Email to sales team
       resend.emails.send({
         from: `EnerTest Solutions <${fromEmail}>`,
-        to: [salesEmail],
+        to: salesEmails,
         subject: `Product Inquiry — ${productName}`,
         html: `
           <div style="font-family:sans-serif;max-width:600px;margin:0 auto;color:#1a1a1a">
