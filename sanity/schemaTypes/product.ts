@@ -30,9 +30,12 @@ export const product = defineType({
       name: "image",
       type: "image",
       title: "Card Image",
-      description: "Image shown on the products listing page",
+      description: "Drag & drop an image, or paste a URL below",
       group: "basic",
       options: { hotspot: true },
+      fields: [
+        defineField({ name: "externalUrl", type: "url", title: "Or paste an image URL" }),
+      ],
     }),
     defineField({
       name: "comingSoon",
@@ -72,7 +75,9 @@ export const product = defineType({
       title: "Carousel Images",
       description: "Images shown in the product image carousel",
       group: "detail",
-      of: [{ type: "image", options: { hotspot: true } }],
+      of: [{ type: "image", options: { hotspot: true }, fields: [
+        { name: "externalUrl", type: "url", title: "Or paste an image URL" },
+      ]}],
     }),
     defineField({
       name: "features",
@@ -116,7 +121,9 @@ export const product = defineType({
           type: "object",
           fields: [
             { name: "label", type: "string", title: "Label" },
-            { name: "src", type: "image", title: "Image", options: { hotspot: true } },
+            { name: "src", type: "image", title: "Image", options: { hotspot: true }, fields: [
+              { name: "externalUrl", type: "url", title: "Or paste an image URL" },
+            ]},
           ],
         },
       ],
@@ -154,6 +161,9 @@ export const product = defineType({
       title: "Specs Table Image",
       group: "detail",
       options: { hotspot: true },
+      fields: [
+        defineField({ name: "externalUrl", type: "url", title: "Or paste an image URL" }),
+      ],
       hidden: ({ document }) => document?.layout !== "advanced",
     }),
     defineField({
