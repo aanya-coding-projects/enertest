@@ -6,6 +6,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import StandardProductLayout from "@/components/products/StandardProductLayout";
 import AdvancedProductLayout from "@/components/products/AdvancedProductLayout";
+import { Turnstile } from "@marsidev/react-turnstile";
 import type { SanityProduct } from "@/sanity/lib/types";
 
 // ─── Carousel ─────────────────────────────────────────────────────────────────
@@ -84,6 +85,7 @@ function IESTProductInquiryForm({ productName }: { productName: string }) {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [turnstileToken, setTurnstileToken] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -96,7 +98,7 @@ function IESTProductInquiryForm({ productName }: { productName: string }) {
       const res = await fetch("/api/product-inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, productName }),
+        body: JSON.stringify({ ...form, productName, turnstileToken }),
       });
       if (!res.ok) throw new Error("Submission failed");
       setSubmitted(true);
@@ -145,7 +147,13 @@ function IESTProductInquiryForm({ productName }: { productName: string }) {
         <textarea id="inq-message" className="form-input form-textarea" name="message" value={form.message} onChange={handleChange} rows={4} placeholder="Describe your application, quantity requirements, or any questions about the product." />
       </div>
       {error && <p className="form-error">{error}</p>}
-      <button type="submit" className="form-submit-btn" disabled={submitting}>
+      <Turnstile
+        siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "1x00000000000000000000AA"}
+        onSuccess={setTurnstileToken}
+        onError={() => setTurnstileToken("")}
+        onExpire={() => setTurnstileToken("")}
+      />
+      <button type="submit" className="form-submit-btn" disabled={submitting || !turnstileToken}>
         {submitting ? "Sending…" : "Send Inquiry"}
       </button>
     </form>

@@ -1,11 +1,16 @@
 import { Resend } from "resend";
 import { NextRequest } from "next/server";
+import { verifyTurnstile } from "@/lib/turnstile";
 
 export async function POST(req: NextRequest) {
   try {
     const resend = new Resend(process.env.RESEND_API_KEY);
     const body = await req.json();
-    const { name, company, email, phone, subject, message } = body;
+    const { name, company, email, phone, subject, message, turnstileToken } = body;
+
+    if (!(await verifyTurnstile(turnstileToken))) {
+      return Response.json({ error: "CAPTCHA verification failed" }, { status: 400 });
+    }
 
     const fromEmail = process.env.FROM_EMAIL ?? "onboarding@resend.dev";
     const salesEmails = (process.env.SALES_EMAIL ?? "").split(",").map((e) => e.trim()).filter(Boolean);

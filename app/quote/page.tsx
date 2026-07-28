@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import { CheckCircle, Send } from "lucide-react";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 const productOptions = [
   "Battery Cell Cycler",
@@ -30,6 +31,7 @@ export default function QuotePage() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -52,7 +54,7 @@ export default function QuotePage() {
       const res = await fetch("/api/quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, turnstileToken }),
       });
       if (!res.ok) throw new Error("Request failed");
       setSubmitted(true);
@@ -210,7 +212,13 @@ export default function QuotePage() {
               </div>
 
               {error && <p style={{ color: "#c0392b", fontSize: "14px", marginBottom: "8px" }}>{error}</p>}
-              <button type="submit" className="form-submit-btn" disabled={loading}>
+              <Turnstile
+                siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "1x00000000000000000000AA"}
+                onSuccess={setTurnstileToken}
+                onError={() => setTurnstileToken("")}
+                onExpire={() => setTurnstileToken("")}
+              />
+              <button type="submit" className="form-submit-btn" disabled={loading || !turnstileToken}>
                 {loading ? <span className="form-btn-loading">Submitting…</span> : <><Send size={15} /> Submit Quote Request</>}
               </button>
             </motion.form>

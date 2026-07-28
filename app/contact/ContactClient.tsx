@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import { MapPin, Mail, Phone, Send, CheckCircle } from "lucide-react";
+import { Turnstile } from "@marsidev/react-turnstile";
 import type { SanityContactPage } from "@/sanity/lib/types";
 
 const DEFAULT_EXPECT_STEPS = [
@@ -20,6 +21,7 @@ export default function ContactClient({ data }: Props) {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState("");
 
   const heroTitle = data?.heroTitle ?? "Get in Touch";
   const heroSubtitle = data?.heroSubtitle ?? "Our engineering team typically responds within one business day.";
@@ -40,7 +42,7 @@ export default function ContactClient({ data }: Props) {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, turnstileToken }),
       });
       const result = await res.json();
       if (result.success) {
@@ -165,7 +167,13 @@ export default function ContactClient({ data }: Props) {
                       className="form-input form-textarea"
                     />
                   </div>
-                  <button type="submit" className="form-submit-btn" disabled={loading}>
+                  <Turnstile
+                    siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "1x00000000000000000000AA"}
+                    onSuccess={setTurnstileToken}
+                    onError={() => setTurnstileToken("")}
+                    onExpire={() => setTurnstileToken("")}
+                  />
+                  <button type="submit" className="form-submit-btn" disabled={loading || !turnstileToken}>
                     {loading ? <span className="form-btn-loading">Sending…</span> : <><Send size={15} />Send Message</>}
                   </button>
                 </form>
