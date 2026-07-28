@@ -6,7 +6,7 @@ import { schemaTypes } from "./sanity/schemaTypes";
 export default defineConfig({
   name: "enertest",
   title: "EnerTest Solutions",
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ?? "1tsozi8b",
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET ?? "production",
   basePath: "/studio",   // ← ADD THIS LINE
   plugins: [
