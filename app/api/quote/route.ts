@@ -67,7 +67,7 @@ export async function POST(req: NextRequest) {
       resend.emails.send({
         from: `EnerTest Solutions <${fromEmail}>`,
         to: salesEmails,
-        subject: `New Quote Request — ${eCompany} (${eName})`,
+        subject: `New Quote Request — ${company} (${name})`,
         html: `
           <div style="font-family:sans-serif;max-width:600px;margin:0 auto;color:#1a1a1a">
             <div style="background:#396548;padding:24px 32px;border-radius:8px 8px 0 0">
