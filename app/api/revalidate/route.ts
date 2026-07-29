@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    revalidateTag("sanity");
+    revalidateTag("sanity", { expire: 0 });
     return NextResponse.json({ revalidated: true, at: new Date().toISOString() });
   } catch {
     return NextResponse.json({ message: "Revalidation failed" }, { status: 500 });
