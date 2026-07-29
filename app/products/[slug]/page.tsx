@@ -16,7 +16,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const product = await client.fetch<SanityProduct | null>(PRODUCT_QUERY, { slug });
+  const product = await client.fetch<SanityProduct | null>(PRODUCT_QUERY, { slug }, { next: { tags: ["sanity"] } });
   if (!product) return { title: "Product | EnerTest Solutions" };
 
   return {
@@ -35,8 +35,8 @@ export default async function Page({
 }) {
   const { slug } = await params;
   const [product, categoryInfo] = await Promise.all([
-    client.fetch<SanityProduct | null>(PRODUCT_QUERY, { slug }),
-    client.fetch<{ categoryId: string; title: string } | null>(PRODUCT_CATEGORY_QUERY, { slug }),
+    client.fetch<SanityProduct | null>(PRODUCT_QUERY, { slug }, { next: { tags: ["sanity"] } }),
+    client.fetch<{ categoryId: string; title: string } | null>(PRODUCT_CATEGORY_QUERY, { slug }, { next: { tags: ["sanity"] } }),
   ]);
 
   if (!product) notFound();

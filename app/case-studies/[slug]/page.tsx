@@ -23,7 +23,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
-  const ref = await client.fetch<SanityCaseStudy | null>(CASE_STUDY_QUERY, { slug });
+  const ref = await client.fetch<SanityCaseStudy | null>(CASE_STUDY_QUERY, { slug }, { next: { tags: ["sanity"] } });
   if (!ref) return {};
   return {
     title: `${ref.customer} Case Study | EnerTest`,
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: PageProps) {
 
 export default async function CaseStudyPage({ params }: PageProps) {
   const { slug } = await params;
-  const ref = await client.fetch<SanityCaseStudy | null>(CASE_STUDY_QUERY, { slug });
+  const ref = await client.fetch<SanityCaseStudy | null>(CASE_STUDY_QUERY, { slug }, { next: { tags: ["sanity"] } });
 
   if (!ref) {
     notFound();

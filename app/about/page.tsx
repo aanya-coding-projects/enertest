@@ -4,6 +4,6 @@ import type { SanityAboutPage } from "@/sanity/lib/types";
 import AboutClient from "./AboutClient";
 
 export default async function AboutPage() {
-  const data = await client.fetch<SanityAboutPage | null>(ABOUT_PAGE_QUERY);
+  const data = await client.fetch<SanityAboutPage | null>(ABOUT_PAGE_QUERY, {}, { next: { tags: ["sanity"] } });
   return <AboutClient data={data} />;
 }

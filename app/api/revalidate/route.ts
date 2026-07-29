@@ -1,4 +1,4 @@
-import { revalidatePath } from "next/cache";
+import { revalidateTag } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    revalidatePath("/", "layout");
+    revalidateTag("sanity");
     return NextResponse.json({ revalidated: true, at: new Date().toISOString() });
   } catch {
     return NextResponse.json({ message: "Revalidation failed" }, { status: 500 });

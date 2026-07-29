@@ -4,6 +4,6 @@ import type { SanityContactPage } from "@/sanity/lib/types";
 import ContactClient from "./ContactClient";
 
 export default async function ContactPage() {
-  const data = await client.fetch<SanityContactPage | null>(CONTACT_PAGE_QUERY);
+  const data = await client.fetch<SanityContactPage | null>(CONTACT_PAGE_QUERY, {}, { next: { tags: ["sanity"] } });
   return <ContactClient data={data} />;
 }
