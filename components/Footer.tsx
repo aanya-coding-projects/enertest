@@ -14,8 +14,8 @@ export default function Footer() {
             <a href="mailto:sales@enertestsolutions.com" className="footer-link">
               sales@enertestsolutions.com
             </a>
-            <a href="tel:+12485334587" className="footer-link">
-              +1 (248) 533-4587
+            <a href="tel:+12487678404" className="footer-link">
+              +1 (248) 767-8404
             </a>
           </div>
 

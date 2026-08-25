@@ -28,7 +28,7 @@ export default function ContactClient({ data }: Props) {
   const addressLine1 = data?.addressLine1 ?? "1741 McCoba Dr SE, Ste A";
   const addressLine2 = data?.addressLine2 ?? "Smyrna, GA 30080";
   const email = data?.email ?? "sales@enertestsolutions.com";
-  const phone = data?.phone ?? "+1 (248) 533-4587";
+  const phone = data?.phone ?? "+1 (248) 767-8404";
   const expectSteps = data?.expectSteps?.length ? data.expectSteps : DEFAULT_EXPECT_STEPS;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {

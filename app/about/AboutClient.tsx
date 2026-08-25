@@ -11,12 +11,6 @@ const DEFAULT_WHO_WE_ARE_BODY = [
   "Strategic access to leading battery manufacturing and test-equipment partners in Asia ensures advanced technology and competitive delivery timelines.",
 ];
 
-const DEFAULT_STATS = [
-  { num: "7", label: "Step Project Process" },
-  { num: "5+", label: "Customer Segments Served" },
-  { num: "10+", label: "Completed U.S. Projects" },
-  { num: "100%", label: "U.S.-Based Engineering" },
-];
 
 const DEFAULT_PAIN_POINTS = [
   "Few U.S.-based suppliers with real battery cell, module, and pack production line experience.",
@@ -99,8 +93,7 @@ export default function AboutClient({ data }: Props) {
   const heroVideoUrl = data?.heroVideoUrl ?? "/Videos/Aboutt.mp4";
   const whoWeAreTitle = data?.whoWeAreTitle ?? "We are not just an equipment seller.";
   const whoWeAreBody = data?.whoWeAreBody?.length ? data.whoWeAreBody : DEFAULT_WHO_WE_ARE_BODY;
-  const stats = data?.stats?.length ? data.stats : DEFAULT_STATS;
-  const painPointsTitle = data?.painPointsTitle ?? "What problems do we solve?";
+const painPointsTitle = data?.painPointsTitle ?? "What problems do we solve?";
   const painPoints = data?.painPoints?.length ? data.painPoints : DEFAULT_PAIN_POINTS;
   const valuePropTitle = data?.valuePropTitle ?? "How we fill the gap.";
   const valuePoints = data?.valuePoints?.length ? data.valuePoints : DEFAULT_VALUE_POINTS;
@@ -141,15 +134,6 @@ export default function AboutClient({ data }: Props) {
               <h2 className="about-section-title">{whoWeAreTitle}</h2>
               {whoWeAreBody.map((p, i) => (
                 <p key={i} className="about-section-body">{p}</p>
-              ))}
-            </motion.div>
-
-            <motion.div className="about-stats-grid" {...fadeUp} transition={{ duration: 0.6, delay: 0.15 }}>
-              {stats.map((s) => (
-                <div key={s.label} className="about-stat">
-                  <span className="about-stat-num">{s.num}</span>
-                  <span className="about-stat-label">{s.label}</span>
-                </div>
               ))}
             </motion.div>
           </div>
