@@ -128,11 +128,11 @@ export default function AdvancedProductLayout({
 
   // Short bullet list for the top accordion (matches every other product's hero).
   // The richer applicationCards (with images) power the tab section below.
-  const shortApplications = data.applicationCards.map((c) => c.title);
+  const shortApplications = (data.applicationCards ?? []).map((c) => c.title);
 
   const availableTabs: Tab[] = [
     "description",
-    ...(data.applicationCards.length > 0 ? (["applications"] as Tab[]) : []),
+    ...((data.applicationCards?.length ?? 0) > 0 ? (["applications"] as Tab[]) : []),
     ...(data.videoEmbedUrl ? (["video"] as Tab[]) : []),
     ...(data.specsImage ? (["specs"] as Tab[]) : []),
     ...(data.downloadUrl ? (["download"] as Tab[]) : []),
@@ -149,16 +149,16 @@ export default function AdvancedProductLayout({
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.55 }}
         >
-          {data.carouselImages.length === 1 ? (
+          {(data.carouselImages?.length ?? 0) === 1 ? (
             <div className="carousel-root">
               <img
-                src={data.carouselImages[0]}
+                src={data.carouselImages![0]}
                 alt={product.name}
                 className="carousel-img"
               />
             </div>
-          ) : data.carouselImages.length > 1 ? (
-            <ImageCarousel slides={data.carouselImages} />
+          ) : (data.carouselImages?.length ?? 0) > 1 ? (
+            <ImageCarousel slides={data.carouselImages!} />
           ) : null}
         </motion.div>
 
@@ -176,7 +176,7 @@ export default function AdvancedProductLayout({
             <p className="pd-description">{product.description}</p>
           )}
 
-          {shortApplications.length > 0 && data.features.length > 0 && (
+          {shortApplications.length > 0 && (data.features?.length ?? 0) > 0 && (
             <div className="pd-accordions">
               <AccordionSection
                 title="Applications"
@@ -186,7 +186,7 @@ export default function AdvancedProductLayout({
               />
               <AccordionSection
                 title="Features"
-                items={data.features}
+                items={data.features ?? []}
                 isOpen={openSection === "features"}
                 onToggle={() => toggleAccordion("features")}
               />
@@ -220,7 +220,7 @@ export default function AdvancedProductLayout({
       <div className="pd-tab-content">
         {activeTab === "description" && (
           <div className="pd-description-section">
-            {data.intro.map((block, i) => (
+            {(data.intro ?? []).map((block, i) => (
               <div
                 key={i}
                 className={`pd-block${block.reverse ? " reverse" : ""}`}
@@ -244,7 +244,7 @@ export default function AdvancedProductLayout({
 
         {activeTab === "applications" && (
           <div className="pd-app-grid">
-            {data.applicationCards.map((card, i) => (
+            {(data.applicationCards ?? []).map((card, i) => (
               <div key={i} className="pd-app-card">
                 <img src={card.image} alt={card.title} />
                 <h3>{card.title}</h3>

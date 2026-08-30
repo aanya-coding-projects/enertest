@@ -191,7 +191,7 @@ async function seedContactPage() {
     addressLine1: "1741 McCoba Dr SE, Ste A",
     addressLine2: "Smyrna, GA 30080",
     email: "sales@enertestsolutions.com",
-    phone: "+1 (248) 533-4587",
+    phone: "+1 (248) 767-8404",
     expectSteps: [
       { _key: "e1", _type: "expectStep", step: "01", text: "Your inquiry reaches our engineering team directly." },
       { _key: "e2", _type: "expectStep", step: "02", text: "We review your requirements and prepare a technical response." },

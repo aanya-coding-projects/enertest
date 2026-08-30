@@ -1,3 +1,5 @@
+export const revalidate = 3600;
+
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { client } from "@/sanity/lib/client";
@@ -16,7 +18,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const product = await client.fetch<SanityProduct | null>(PRODUCT_QUERY, { slug }, { next: { tags: ["sanity"] } });
+  const product = await client.fetch<SanityProduct | null>(PRODUCT_QUERY, { slug }, { cache: "force-cache", next: { tags: ["sanity"] } });
   if (!product) return { title: "Product | EnerTest Solutions" };
 
   return {
@@ -35,8 +37,8 @@ export default async function Page({
 }) {
   const { slug } = await params;
   const [product, categoryInfo] = await Promise.all([
-    client.fetch<SanityProduct | null>(PRODUCT_QUERY, { slug }, { next: { tags: ["sanity"] } }),
-    client.fetch<{ categoryId: string; title: string } | null>(PRODUCT_CATEGORY_QUERY, { slug }, { next: { tags: ["sanity"] } }),
+    client.fetch<SanityProduct | null>(PRODUCT_QUERY, { slug }, { cache: "force-cache", next: { tags: ["sanity"] } }),
+    client.fetch<{ categoryId: string; title: string } | null>(PRODUCT_CATEGORY_QUERY, { slug }, { cache: "force-cache", next: { tags: ["sanity"] } }),
   ]);
 
   if (!product) notFound();

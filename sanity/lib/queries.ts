@@ -150,7 +150,7 @@ export const PRODUCT_QUERY = groq`
 `;
 
 export const ALL_PRODUCT_SLUGS_QUERY = groq`
-  *[_type == "product" && defined(slug.current)][].slug.current
+  *[_type == "product" && defined(slug.current) && defined(layout)][].slug.current
 `;
 
 export const PRODUCT_CATEGORY_QUERY = groq`

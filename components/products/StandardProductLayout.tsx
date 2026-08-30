@@ -331,8 +331,8 @@ export default function StandardProductLayout({
               )}
 
               {data &&
-                data.applications.length > 0 &&
-                data.features.length > 0 && (
+                (data.applications?.length ?? 0) > 0 &&
+                (data.features?.length ?? 0) > 0 && (
                   <div className="pd-accordions">
                     <AccordionSection
                       title="Applications"
