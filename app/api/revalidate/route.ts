@@ -25,33 +25,10 @@ export async function POST(req: NextRequest) {
     const docType = (body as { _type?: string } | null)?._type;
     console.log("[revalidate] Valid webhook, docType:", docType);
 
-    revalidateTag("sanity", "max");
-
-    // revalidatePath works at the routing layer and propagates across all
-    // serverless instances on Vercel, unlike revalidateTag which is in-memory only.
-    switch (docType) {
-      case "product":
-        revalidatePath("/products", "layout");
-        break;
-      case "category":
-        revalidatePath("/products");
-        break;
-      case "contactPage":
-        revalidatePath("/contact");
-        break;
-      case "homePage":
-        revalidatePath("/");
-        break;
-      case "aboutPage":
-        revalidatePath("/about");
-        break;
-      case "caseStudy":
-        revalidatePath("/case-studies", "layout");
-        break;
-      default:
-        revalidatePath("/", "layout");
-        break;
-    }
+    // expire: 0 causes immediate expiration so the next visit fetches fresh data
+    // (vs "max" which serves stale content on first visit, fresh only on second)
+    revalidateTag("sanity", { expire: 0 });
+    revalidatePath("/", "layout");
 
     return NextResponse.json({ revalidated: true, docType, at: new Date().toISOString() });
   } catch (err) {
