@@ -128,15 +128,13 @@ const painPointsTitle = data?.painPointsTitle ?? "What problems do we solve?";
       {/* Who We Are */}
       <section className="about-section">
         <div className="about-section-inner">
-          <div className="about-two-col">
-            <motion.div {...fadeUp}>
-              <span className="cap-tag">WHO WE ARE</span>
-              <h2 className="about-section-title">{whoWeAreTitle}</h2>
-              {whoWeAreBody.map((p, i) => (
-                <p key={i} className="about-section-body">{p}</p>
-              ))}
-            </motion.div>
-          </div>
+          <motion.div {...fadeUp}>
+            <span className="cap-tag">WHO WE ARE</span>
+            <h2 className="about-section-title">{whoWeAreTitle}</h2>
+            {whoWeAreBody.map((p, i) => (
+              <p key={i} className="about-section-body">{p}</p>
+            ))}
+          </motion.div>
         </div>
       </section>
 
